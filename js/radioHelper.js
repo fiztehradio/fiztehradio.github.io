@@ -80,7 +80,7 @@ $(function () {
     });
 
     function loadNowPlaying() {
-        $.getJSON('http://radio.mipt.ru:8880/api/nowplaying/1', function (row) {
+        $.getJSON('https://radio.mipt.ru:8443/api/nowplaying/1', function (row) {
             nowPlaying.np = row;
             songHistory.history = row.song_history;
 
