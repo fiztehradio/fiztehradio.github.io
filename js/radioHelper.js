@@ -37,7 +37,7 @@ $(function () {
                     "song": {
                         "title": "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043f\u0435\u0441\u043d\u0438",
                         "artist": "\u0418\u0441\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c",
-                        "art": "\/static\/img\/generic_song.jpg"
+                        "art": "" // TODO: put here the link to FR logo 
                     },
                     "is_request": false,
                     "elapsed": 0,
@@ -65,6 +65,8 @@ $(function () {
 
     setInterval(iterateTimer, 1000);
 });
+
+var songHistory;
 
 $(function () {
     songHistory = new Vue({
@@ -101,48 +103,48 @@ $(function () {
     });
 });
 
-var request_dialog = $('#modal-request');
+// var request_dialog = $('#modal-request');
 
-request_dialog.on('show.bs.modal', function (event) {
+// request_dialog.on('show.bs.modal', function (event) {
 
-    if (!request_dialog.data('request_loaded')) {
-        var grid = $("#requests-table").bootgrid({
-            ajax: true,
-            rowSelect: false,
-            caseSensitive: false,
-            css: {
-                icon: 'zmdi icon',
-                iconColumns: 'zmdi-view-module',
-                iconDown: 'zmdi-sort-amount-desc',
-                iconRefresh: 'zmdi-refresh',
-                iconUp: 'zmdi-sort-amount-asc'
-            },
-            url: "http://radio.mipt.ru:8880/api/station/1/requests",
-            formatters: {
-                "commands": function (column, row) {
-                    return '<a class="btn btn-request btn-sm btn-primary" data-url="' + row.request_url + '">Запрос</a>';
-                }
-            }
-        }).on("loaded.rs.jquery.bootgrid", function () {
-            /* Executes after data is loaded and rendered */
-            grid.find(".btn-request").on("click", function (e) {
-                e.preventDefault();
-                request_dialog.modal('hide');
+//     if (!request_dialog.data('request_loaded')) {
+//         var grid = $("#requests-table").bootgrid({
+//             ajax: true,
+//             rowSelect: false,
+//             caseSensitive: false,
+//             css: {
+//                 icon: 'zmdi icon',
+//                 iconColumns: 'zmdi-view-module',
+//                 iconDown: 'zmdi-sort-amount-desc',
+//                 iconRefresh: 'zmdi-refresh',
+//                 iconUp: 'zmdi-sort-amount-asc'
+//             },
+//             url: "https://radio.mipt.ru:8443/api/nowplaying/1",
+//             formatters: {
+//                 "commands": function (column, row) {
+//                     return '<a class="btn btn-request btn-sm btn-primary" data-url="' + row.request_url + '">Запрос</a>';
+//                 }
+//             }
+//         }).on("loaded.rs.jquery.bootgrid", function () {
+//             /* Executes after data is loaded and rendered */
+//             grid.find(".btn-request").on("click", function (e) {
+//                 e.preventDefault();
+//                 request_dialog.modal('hide');
 
-                $.ajax({
-                    dataType: "json",
-                    url: $(this).data('url')
-                }).done(function (data) {
-                    notify(data, 'success');
-                }).fail(function (jqXhr) {
-                    notify('Error: ' + jqXhr.responseJSON, 'danger');
-                });
+//                 $.ajax({
+//                     dataType: "json",
+//                     url: $(this).data('url')
+//                 }).done(function (data) {
+//                     notify(data, 'success');
+//                 }).fail(function (jqXhr) {
+//                     notify('Error: ' + jqXhr.responseJSON, 'danger');
+//                 });
 
-                return false;
-            });
-        });
+//                 return false;
+//             });
+//         });
 
-        request_dialog.data('request_loaded', true);
-    }
+//         request_dialog.data('request_loaded', true);
+//     }
 
-});
+// });
