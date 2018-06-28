@@ -20,11 +20,14 @@
     <meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous"
         href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
     />
         
     <link rel="stylesheet" type="text/css" href="/css/azuracast-dark.css" />
+    <link rel="stylesheet" type="text/css" href="/css/radio.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
 
     <script type="text/javascript" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" integrity="sha256-1Q2q5hg2YXp9fYlM++sIEXOcUb8BRSDUsQ1zXvLBqmA=" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
@@ -32,56 +35,39 @@
 </head>
 
 <header>
-    <h1>Физтех.Радио</h1>
+    <h1 class="white-text text-center">Физтех.Радио</h1>
 </header>
 
 <body>
-    <!-- <div class="public-page"> -->
-        <div class="public-block">
-            <h3 class="text-center">Физтех.Радио</h3>
+    <div class="radio-controls text-center">
+        <div class="play-button">
+            <a class="btn-audio" role="button" title="Play/Pause" href="#" data-url="https://radio.mipt.ru/stream">
+                <i class="zmdi zmdi-play"></i>
+            </a>
+        </div>
 
-            <ul class="actions pull-right" id="radio-player-controls">
-                <li>
-                    <a href="javascript:;" class="jp-mute" title="Откл. звук">
-                        <i class="zmdi zmdi-volume-up"></i>
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="javascript:;" class="jp-unmute" title="Включить звук">
-                        <i class="zmdi zmdi-volume-off"></i>
-                    </a>
-                </li> -->
-                <li>
-                    <div class="progress jp-volume-bar" style="width: 100px; height: 15px;">
-                        <div class="jp-volume-bar-value progress-bar" role="progressbar"></div>
-                    </div>
-                </li>
-            </ul>
-            
+        <div class="progress jp-volume-bar text-center" style="width: 100px; height: 15px;">
+            <div class="jp-volume-bar-value progress-bar  text-center" role="progressbar"></div>
+        </div>
 
-            <div class="stations nowplaying">
-                <div class="media media-left" id="station-nowplaying">
-                    <div class="pull-left p-r-10 p-t-5">
-                        <a class="btn-audio" role="button" title="Play/Pause" href="#" data-url="https://radio.mipt.ru/stream">
-                            <i class="zmdi zmdi-play"></i>
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            {{ np.now_playing.song.title }}
-                        </h4>
-                        <div>
-                            {{ np.now_playing.song.artist }}
-                        </div>
-                        <div class="nowplaying-progress" v-if="time_display">
-                            {{ time_display }}
-                        </div>
-                    </div>
+        <div class="media media-center" id="station-nowplaying">
+            <div class="media-body text-center">
+                <div class="media-artist text-center">
+                    {{ np.now_playing.song.title }}
+                </div>
+
+                <div class="media-title text-center">
+                    {{ np.now_playing.song.artist }}
+                </div>
+
+                <div class="nowplaying-progress text-center" v-if="time_display">
+                    {{ time_display }}
                 </div>
             </div>
-
         </div>
-    <!-- </div> -->
+    </div>
+
+    
 
     <script type="text/javascript" src="/js/radioHelper.js"></script>
     <script type="text/javascript" src="/js/radio.js"></script>
