@@ -1,0 +1,31 @@
+{
+  "name": "radio.mipt.ru",
+  "version": "2.0.0",
+  "description": "Физтех.Радио",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiztehradio/radio.mipt.ru.git"
+  },
+  "author": "sirotin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fiztehradio/radio.mipt.ru/issues"
+  },
+  "homepage": "https://github.com/fiztehradio/radio.mipt.ru#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglifycss": "^1.1.0"
+  }
+}
