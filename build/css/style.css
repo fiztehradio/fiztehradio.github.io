@@ -23,7 +23,7 @@ h1 {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: chocolate;
+  background-color: #20c997;
   text-align: center;
 }
 
@@ -57,10 +57,6 @@ h1 {
 h1 {
   margin: 0;
   padding: 20px;
-}
-
-#info {
-  text-align: center;
 }
 
 #slidecontainer {
@@ -203,4 +199,31 @@ h1 {
   top: 18px;
   width: 0;
   left: 50%;
+}
+#hexagon {
+  position: relative;
+  width: 100px;
+  height: 57.73503px;
+  background-color: white;
+  margin: 28.86751px 0;
+}
+
+#hexagon:before,
+#hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+#hexagon:before {
+  bottom: 100%;
+  border-bottom: 28.86751px solid white;
+}
+
+#hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.86751px solid white;
 }

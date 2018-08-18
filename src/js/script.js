@@ -15,6 +15,7 @@ function closeNav() {
 }
 
 $(document).ready(function () {
+
 	$('#nav-icon').click(function () {
 		$(this).toggleClass('open');
 		if ($(this).hasClass("open"))
@@ -22,4 +23,11 @@ $(document).ready(function () {
 		else
 			closeNav();
 	});
+
+	$('.control').click(function() {
+		$(this).toggleClass('pause play');
+	});
 });
+
+
+

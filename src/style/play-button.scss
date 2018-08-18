@@ -1,0 +1,36 @@
+// http://csshexagon.com/
+
+$backgroundColor: white;	//#
+$color: black;	//#20c997
+
+$width: 100px;
+$tg30: 0.57735026919;
+$edgeSize: $width * $tg30;
+
+#hexagon {
+	position: relative;
+	width: $width;
+	height: $edgeSize;
+	background-color: $backgroundColor;
+	margin: $edgeSize/2 0;
+}
+
+#hexagon:before,
+#hexagon:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	border-left: $width/2 solid transparent;
+	border-right: $width/2 solid transparent;
+}
+
+#hexagon:before {
+	bottom: 100%;
+	border-bottom: $edgeSize/2 solid $backgroundColor;
+}
+
+#hexagon:after {
+	top: 100%;
+	width: 0;
+	border-top: $edgeSize/2 solid $backgroundColor;
+}
