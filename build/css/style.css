@@ -202,10 +202,10 @@ h1 {
 }
 #hexagon {
   position: relative;
-  width: 100px;
-  height: 57.73503px;
+  width: 120px;
+  height: 69.28203px;
   background-color: white;
-  margin: 28.86751px 0;
+  margin: 34.64102px 0;
 }
 
 #hexagon:before,
@@ -213,17 +213,76 @@ h1 {
   content: "";
   position: absolute;
   width: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
 }
 
 #hexagon:before {
   bottom: 100%;
-  border-bottom: 28.86751px solid white;
+  border-bottom: 34.64102px solid white;
 }
 
 #hexagon:after {
   top: 100%;
   width: 0;
-  border-top: 28.86751px solid white;
+  border-top: 34.64102px solid white;
+}
+
+* {
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.button {
+  position: relative;
+  left: 37.49997px;
+  top: 4.64102px;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.button span {
+  display: inline-block;
+  background-color: transparent;
+}
+
+.button span:nth-child(1).play {
+  width: 30px;
+  height: 60px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 15px 0 15px 30px;
+  border-color: transparent transparent transparent black;
+}
+
+.button span:nth-child(1).pause {
+  width: 30px;
+  height: 60px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0 0 0 15px;
+  border-color: transparent transparent transparent black;
+}
+
+.button span:nth-child(2).play {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 15px 0 15px 30px;
+  border-color: transparent transparent transparent black;
+}
+
+.button span:nth-child(2).pause {
+  width: 30px;
+  height: 60px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0 0 0 15px;
+  border-color: transparent transparent transparent black;
 }

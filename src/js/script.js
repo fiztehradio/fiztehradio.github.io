@@ -24,9 +24,11 @@ $(document).ready(function () {
 			closeNav();
 	});
 
-	$('.control').click(function() {
-		$(this).toggleClass('pause play');
+	$('.button').click(function() {
+		$('.button span').toggleClass('pause play');
 	});
+
+
 });
 
 

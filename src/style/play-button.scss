@@ -3,13 +3,16 @@
 $backgroundColor: white;	//#
 $color: black;	//#20c997
 
-$width: 100px;
+$sqrt3: 1.73205;
 $tg30: 0.57735026919;
-$edgeSize: $width * $tg30;
+
+$hexagonHeight: 120px;
+$edgeSize: $hexagonHeight * $tg30;
+$hexagonWidth: $edgeSize * $sqrt3;
 
 #hexagon {
 	position: relative;
-	width: $width;
+	width: $hexagonHeight;
 	height: $edgeSize;
 	background-color: $backgroundColor;
 	margin: $edgeSize/2 0;
@@ -20,8 +23,8 @@ $edgeSize: $width * $tg30;
 	content: "";
 	position: absolute;
 	width: 0;
-	border-left: $width/2 solid transparent;
-	border-right: $width/2 solid transparent;
+	border-left: $hexagonHeight/2 solid transparent;
+	border-right: $hexagonHeight/2 solid transparent;
 }
 
 #hexagon:before {
@@ -33,4 +36,72 @@ $edgeSize: $width * $tg30;
 	top: 100%;
 	width: 0;
 	border-top: $edgeSize/2 solid $backgroundColor;
+}
+
+$playButtonWidth: 60px;
+$playButtonHeight: $playButtonWidth;
+$playButtonColor: black;
+
+* {
+	transition: all 0.1s linear;
+}
+
+.button {
+	position: relative;
+	left: ($hexagonWidth - 3 * $playButtonWidth / 4) / 2;
+	top: ($edgeSize - $playButtonHeight) / 2;
+
+	font-size: 0;	// Иначе появляется пространство между двумя span
+	cursor: pointer;
+
+	span {
+		display: inline-block;
+		background-color: transparent;
+
+		&:nth-child(1) {
+			&.play {
+				width: $playButtonWidth/2;
+				height: $playButtonHeight;
+
+				box-sizing: border-box;
+				border-style: solid;
+				border-width: $playButtonHeight/4 0 $playButtonHeight/4 $playButtonWidth/2;
+				border-color: transparent transparent transparent $playButtonColor;
+			}
+
+			&.pause {
+				width: $playButtonWidth/2;
+				height: $playButtonHeight;
+
+				box-sizing: border-box;
+				border-style: solid;
+				border-width: 0 0 0 $playButtonWidth/4;
+				border-color: transparent transparent transparent $playButtonColor;
+			}
+		}
+
+		&:nth-child(2) {
+			&.play {
+				width: $playButtonWidth/2;
+				height: $playButtonHeight/2;
+
+				margin-bottom: $playButtonHeight/4;
+
+				box-sizing: border-box;
+				border-style: solid;
+				border-width: $playButtonHeight/4 0 $playButtonHeight/4 $playButtonWidth/2;
+				border-color: transparent transparent transparent $playButtonColor;
+			}
+
+			&.pause {
+				width: $playButtonWidth/2;
+				height: $playButtonHeight;
+
+				box-sizing: border-box;
+				border-style: solid;
+				border-width: 0 0 0 $playButtonWidth/4;
+				border-color: transparent transparent transparent $playButtonColor;
+			}
+		}
+	}
 }
