@@ -15,7 +15,8 @@ $hexagonWidth: $edgeSize * $sqrt3;
 	width: $hexagonHeight;
 	height: $edgeSize;
 	background-color: $backgroundColor;
-	margin: $edgeSize/2 0;
+	cursor: pointer;
+	margin: $edgeSize/2 + 20px auto;
 }
 
 #hexagon:before,
@@ -38,9 +39,9 @@ $hexagonWidth: $edgeSize * $sqrt3;
 	border-top: $edgeSize/2 solid $backgroundColor;
 }
 
-$playButtonWidth: 60px;
+$playButtonWidth: 48px;	// Должно быть кратно 6, чтобы ровно отображалось
 $playButtonHeight: $playButtonWidth;
-$playButtonColor: black;
+$playButtonColor: #ed4343;
 
 * {
 	transition: all 0.1s linear;
@@ -52,7 +53,6 @@ $playButtonColor: black;
 	top: ($edgeSize - $playButtonHeight) / 2;
 
 	font-size: 0;	// Иначе появляется пространство между двумя span
-	cursor: pointer;
 
 	span {
 		display: inline-block;

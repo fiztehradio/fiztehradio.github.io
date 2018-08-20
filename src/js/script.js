@@ -24,7 +24,7 @@ $(document).ready(function () {
 			closeNav();
 	});
 
-	$('.button').click(function() {
+	$('#hexagon').click(function() {
 		$('.button span').toggleClass('pause play');
 	});
 

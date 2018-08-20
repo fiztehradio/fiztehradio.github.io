@@ -5,7 +5,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  background-color: lightgrey;
+  background-color: #1d865b;
 }
 
 h1 {
@@ -57,6 +57,20 @@ h1 {
 h1 {
   margin: 0;
   padding: 20px;
+}
+
+#info {
+  text-align: center;
+}
+
+#song-author {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+#song-name {
+  font-size: 1.5em;
+  font-weight: 300;
 }
 
 #slidecontainer {
@@ -205,7 +219,8 @@ h1 {
   width: 120px;
   height: 69.28203px;
   background-color: white;
-  margin: 34.64102px 0;
+  cursor: pointer;
+  margin: 54.64102px auto;
 }
 
 #hexagon:before,
@@ -235,10 +250,9 @@ h1 {
 
 .button {
   position: relative;
-  left: 37.49997px;
-  top: 4.64102px;
+  left: 41.99997px;
+  top: 10.64102px;
   font-size: 0;
-  cursor: pointer;
 }
 
 .button span {
@@ -247,42 +261,42 @@ h1 {
 }
 
 .button span:nth-child(1).play {
-  width: 30px;
-  height: 60px;
+  width: 24px;
+  height: 48px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-style: solid;
-  border-width: 15px 0 15px 30px;
-  border-color: transparent transparent transparent black;
+  border-width: 12px 0 12px 24px;
+  border-color: transparent transparent transparent #ed4343;
 }
 
 .button span:nth-child(1).pause {
-  width: 30px;
-  height: 60px;
+  width: 24px;
+  height: 48px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-style: solid;
-  border-width: 0 0 0 15px;
-  border-color: transparent transparent transparent black;
+  border-width: 0 0 0 12px;
+  border-color: transparent transparent transparent #ed4343;
 }
 
 .button span:nth-child(2).play {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 15px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 12px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-style: solid;
-  border-width: 15px 0 15px 30px;
-  border-color: transparent transparent transparent black;
+  border-width: 12px 0 12px 24px;
+  border-color: transparent transparent transparent #ed4343;
 }
 
 .button span:nth-child(2).pause {
-  width: 30px;
-  height: 60px;
+  width: 24px;
+  height: 48px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-style: solid;
-  border-width: 0 0 0 15px;
-  border-color: transparent transparent transparent black;
+  border-width: 0 0 0 12px;
+  border-color: transparent transparent transparent #ed4343;
 }
