@@ -3,15 +3,75 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Физтех.Радио - мы несем Аш Ню</title>
+
+	<!--					-->
+	<!--		Assets		-->
+	<!--					-->
+
+	<link rel="stylesheet" type="text/css" href="css/nouislider.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://use.typekit.net/lui5vlp.css">
 	<!--FIXME: Обязательно уменьшить колчиество весов шрифта в typekit-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-		  integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
 	<script src="js/script.js"></script>
+
+	<!--					-->
+	<!--	Yandex.Metrika	-->
+	<!--					-->
+
+	<script type="text/javascript"> (function (d, w, c) {
+		(w[c] = w[c] || []).push(function () {
+			try {
+				w.yaCounter46493418 = new Ya.Metrika({
+					id: 46493418,
+					clickmap: true,
+					trackLinks: true,
+					accurateTrackBounce: true,
+					trackHash: true
+				});
+			} catch (e) {
+			}
+		});
+		var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+			n.parentNode.insertBefore(s, n);
+		};
+		s.type = "text/javascript";
+		s.async = true;
+		s.src = "https://mc.yandex.ru/metrika/watch.js";
+		if (w.opera == "[object Opera]") {
+			d.addEventListener("DOMContentLoaded", f, false);
+		} else {
+			f();
+		}
+	})(document, window, "yandex_metrika_callbacks"); </script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/46493418" style="position:absolute; left:-9999px;" alt=""/></div>
+	</noscript>
+
+	<!--				-->
+	<!--	OneSignal	-->
+	<!--				-->
+
+	<link rel="manifest" href="/manifest.json"/>
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<script>
+		var OneSignal = window.OneSignal || [];
+		OneSignal.push(function () {
+			OneSignal.init({
+				appId: "c49827eb-e6e5-4066-9921-ee6fa43d1cfd",
+				autoRegister: true,
+				notifyButton: {
+					enable: true,
+				},
+			});
+		});
+	</script>
 </head>
 <body>
+
+<audio id="player" src="https://phystech.tv/radio/8000/fiztehradio"></audio>
 
 <div id="sidenav">
 	<a href="#">Че мы делаем</a>
@@ -38,8 +98,12 @@
 		<div id="info">
 			<p id="song-author">The Franz Ferdinand</p>
 			<p id="song-name">Take me out</p>
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK6SURBVGhD7dlLqA5hHMfxQ66xUZSOIkQppSxky+KwZIOFXLJySbHDws6GDamTlQVLdhILpVyzcF1IJJdyyaUsXHP7/px3anrmPzPPXJ95T3716bzve55nzvPrnXfmzDsD5ApuYYae9HNU4g/uo6/LaPEq8b9M1zJqy9zrPe/b+JaZjPEjD2vJlN7PWmOVWYYjuItv0O/kE67jEJbAJxOxDqfwCD+hbWm7z3ERuzAblRMvE194nstYDisTsAdvYM11/cJJVC4UL1OEFnAY4xBlAW7DGp/nC7agcFRg9cjD0mXkHCZBu+WH3mtVaNceA6/oQ3cT37FGL5AqZS7ho/NaFfvglbOIJtVVpk7abaO9JTUr4U7sYpnHyDz061BrTeximZ0wsxTWhEjXyugIaEYnNGtCXNfKzEEiV2ENdnWpzGYk8hTWYEtXyhxAIlqcNThNF8ocQyI/YA3OErrMUSTyHtbgPCHLHEQid2AN9hGqzHYkchrWYF8hyuif0UTUzhpcRJtlvkLXN4nMgzWhqLbKnEdqrsGaVFQbZTYgNZtgTSqjyTJvoS8/UqNL0yewJpfRVJm9yM16WJPLqrvMC2S+G/Hog2RtpCy3TNp1T57fGIJ3ZuIlrI2VVUeZYRSOTjZFvs/yUaXMDZjnDZ9shbXRKlRmLRTfMs+gvaRSdITQvmn9gbKKlNEuPh+1RBf6IcronViIWrMNZa5ZsmSVeYBZaCQr8A7xxVSVVkY/9byxzEXWPl1GsDI6sx5HnZ+b15gGpdUyyiq8gruooi5gEPG0XmY6zsBdnI/P2IG0WwWtl1F08tRtOHexaXTrwufQGqSMDgS69eYuOk4f7P2I383KS5AyY7Ebul3mltAifG+YuglSRlmMh4hKnIBuw1VJsDJToa+ZNv57Vk+ClWkio7aMboX3dXQOo8TAor8pW/mo6D9aWgAAAABJRU5ErkJggg==">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVGhD7dm/S1VhHMfx2w/sB5i5WQ0F4tjQmiKETTaJQRTkEKg0OvVjqU2aBG1qEXQIbSgV7A+oqLWhCESzITdNsUJLq/eHPHCRL9fnnHvueR7hecMLRfR7nqvnnnueaykWi8ViMY8dxPH/n1ZV/c7HwmpEL2bwFVv4ixW8xyAuoFLHcBUTWMAGNOMHPmIEHTiA3DuKu/gGHXQvL9GC8rSwm1iC9TO7vUU7cusUNNQ6WCWb6IHS6TcL6/sq2cY9VP3XacIXWAdx8Qd38Krsa1nodMucTqd3sAb70I9M6TdpDfRFF4PTSJWuTq5P7CI9QapuwRrk2zqOwLlpWINCcAXOfYY1JAT34Vzyahuix3DqMKwBoRiFc7rUWUNCMATnPsEaEoIBOPcM1pAQXIZzt2EN8e0ntA1w7gx052kN8+kFUqfNkzXMp1QvhkltsIb5oh2ottaZmoI11IdOZO4sdKNmDS6S9vdVdw3a6VkHKMIctK3IpUewDlJr33EeuXUIRT9f9FZTF3KvDkVdkn9Dp3TN0oN5DuvgedHbSN2oebrNH4a1iGot4xIKrQ+/YC0oiw9ohpcuYh7WwtIYwwl4TQsYh7XAvaziOoLqBtZgLdjyGucQZFrYG1gLT+jS+gC6aASdFvgQyf9Oyi2iFfsqbQO08ORBPEUD9mUnMQm9BRuLxWKxnUqlfyGi206x1fChAAAAAElFTkSuQmCC">
+
+			<img class="vote"
+				 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK6SURBVGhD7dlLqA5hHMfxQ66xUZSOIkQppSxky+KwZIOFXLJySbHDws6GDamTlQVLdhILpVyzcF1IJJdyyaUsXHP7/px3anrmPzPPXJ95T3716bzve55nzvPrnXfmzDsD5ApuYYae9HNU4g/uo6/LaPEq8b9M1zJqy9zrPe/b+JaZjPEjD2vJlN7PWmOVWYYjuItv0O/kE67jEJbAJxOxDqfwCD+hbWm7z3ERuzAblRMvE194nstYDisTsAdvYM11/cJJVC4UL1OEFnAY4xBlAW7DGp/nC7agcFRg9cjD0mXkHCZBu+WH3mtVaNceA6/oQ3cT37FGL5AqZS7ho/NaFfvglbOIJtVVpk7abaO9JTUr4U7sYpnHyDz061BrTeximZ0wsxTWhEjXyugIaEYnNGtCXNfKzEEiV2ENdnWpzGYk8hTWYEtXyhxAIlqcNThNF8ocQyI/YA3OErrMUSTyHtbgPCHLHEQid2AN9hGqzHYkchrWYF8hyuif0UTUzhpcRJtlvkLXN4nMgzWhqLbKnEdqrsGaVFQbZTYgNZtgTSqjyTJvoS8/UqNL0yewJpfRVJm9yM16WJPLqrvMC2S+G/Hog2RtpCy3TNp1T57fGIJ3ZuIlrI2VVUeZYRSOTjZFvs/yUaXMDZjnDZ9shbXRKlRmLRTfMs+gvaRSdITQvmn9gbKKlNEuPh+1RBf6IcronViIWrMNZa5ZsmSVeYBZaCQr8A7xxVSVVkY/9byxzEXWPl1GsDI6sx5HnZ+b15gGpdUyyiq8gruooi5gEPG0XmY6zsBdnI/P2IG0WwWtl1F08tRtOHexaXTrwufQGqSMDgS69eYuOk4f7P2I383KS5AyY7Ebul3mltAifG+YuglSRlmMh4hKnIBuw1VJsDJToa+ZNv57Vk+ClWkio7aMboX3dXQOo8TAor8pW/mo6D9aWgAAAABJRU5ErkJggg==">
+			<img class="vote"
+				 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVGhD7dm/S1VhHMfx2w/sB5i5WQ0F4tjQmiKETTaJQRTkEKg0OvVjqU2aBG1qEXQIbSgV7A+oqLWhCESzITdNsUJLq/eHPHCRL9fnnHvueR7hecMLRfR7nqvnnnueaykWi8ViMY8dxPH/n1ZV/c7HwmpEL2bwFVv4ixW8xyAuoFLHcBUTWMAGNOMHPmIEHTiA3DuKu/gGHXQvL9GC8rSwm1iC9TO7vUU7cusUNNQ6WCWb6IHS6TcL6/sq2cY9VP3XacIXWAdx8Qd38Krsa1nodMucTqd3sAb70I9M6TdpDfRFF4PTSJWuTq5P7CI9QapuwRrk2zqOwLlpWINCcAXOfYY1JAT34Vzyahuix3DqMKwBoRiFc7rUWUNCMATnPsEaEoIBOPcM1pAQXIZzt2EN8e0ntA1w7gx052kN8+kFUqfNkzXMp1QvhkltsIb5oh2ottaZmoI11IdOZO4sdKNmDS6S9vdVdw3a6VkHKMIctK3IpUewDlJr33EeuXUIRT9f9FZTF3KvDkVdkn9Dp3TN0oN5DuvgedHbSN2oebrNH4a1iGot4xIKrQ+/YC0oiw9ohpcuYh7WwtIYwwl4TQsYh7XAvaziOoLqBtZgLdjyGucQZFrYG1gLT+jS+gC6aASdFvgQyf9Oyi2iFfsqbQO08ORBPEUD9mUnMQm9BRuLxWKxnUqlfyGi206x1fChAAAAAElFTkSuQmCC">
+
 		</div>
 
 		<div id="hexagon">
@@ -48,18 +112,29 @@
 				<span class="play"></span>
 			</div>
 		</div>
+
+		<!--<div id="center-bottom">-->
+			<!--<input id="volume" type="range" min="0" max="100" value="50" class="slider">-->
+		<!--</div>-->
+
+		<div id="volume-control"></div>
+
+
 	</div>
 </div>
 
 
 <div id="bottom">
-	<div id="slidecontainer">
-		<i class="fas fa-volume-down"></i>
-		<input type="range" min="0" max="100" value="50"
-			   class="slider" id="volumeInput">
-		<i class="fas fa-volume-up"></i>
-	</div>
+	<p id="joke">Физтехи шутят каждый день</p>
+	<!--<div id="slidecontainer">-->
+	<!--<i class="fas fa-volume-down"></i>-->
+	<!--<input type="range" min="0" max="100" value="50"-->
+	<!--class="slider" id="volumeInput">-->
+	<!--<i class="fas fa-volume-up"></i>-->
+	<!--</div>-->
 </div>
+
+
 
 
 </body>

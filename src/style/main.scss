@@ -1,100 +1,145 @@
+$red: #f04244;
+
 html {
-  font-family: "circe";
+	font-family: "circe", sans-serif;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background-color: #1d865b;
-}
-
-h1 {
-  font-size: 1.5em;
+	padding: 0;
+	margin: 0;
+	background-color: #1d865b;
 }
 
 #main, #top, #bottom {
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-
-  transition: margin-left .5s;
-  //padding: 20px;
+	transition: margin-left .5s;
+	//padding: 20px;
 }
 
 #top {
-  position: fixed;
-  top: 0;
-  //height: 50px;
-  width: 100%;
-  background-color: #20c997;
-  text-align: center;
+	position: fixed;
+	top: 0;
+	//height: 50px;
+	width: 100%;
+	background-color: transparent;
+	text-align: center;
 }
 
 #main {
-  position: fixed;
-  top: 0;
-  height: 95vh;
-  width: 100%;
+	position: fixed;
+	top: 0;
+	height: 95vh;
+	width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 #bottom {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 10vh;
-  background-color: indianred;
-  text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	//height: 10vh;
+	background-color: $red;
+	text-align: center;
 }
 
-
 h1 {
-  margin: 0;
-  padding: 20px;
+	font-size: 1.5em;
+	text-align: right;
+	margin: 0;
+	padding: 20px 30px;
+	color: white;
 }
 
 #info {
-  text-align: center;
+	text-align: center;
 }
 
 #song-author {
-	font-size: 2em;
-	font-weight: 500;
+	font-size: 1.5em;
+	font-weight: 900;
+	margin: 0;
+	color: white;
 }
 
 #song-name {
 	font-size: 1.5em;
-	font-weight: 300;
+	font-weight: 500;
+	margin: 0;
+	color: white;
 }
 
-#slidecontainer {
-  height: 40px;
-
-  i {
-	margin: 0 10px;
-  }
+.vote {
+	margin: 20px 15px 0 15px;
+	width: 35px;
 }
 
-#play-button {
-  width: 64px;
-  height: 64px;
-  //border-radius: 50%;
-  margin: auto;
-  //background-color: blue;
+#center-bottom {
+	text-align: center;
 }
 
-.slider {
-  display: inline-block;
-  -webkit-appearance: none;
-  height: 5px;
-  border-radius: 5px;
-  background: white;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+#volume {
+	cursor: pointer;
 }
+
+#volume-control {
+	margin-top: 80px;
+
+	* {
+		transition: none;
+	}
+}
+
+.noUi-target {
+	border: none;
+}
+
+.noUi-horizontal {
+	height: 5px;
+}
+
+.noUi-connects {
+	background-color: $red;
+}
+
+.noUi-connect {
+	background-color: white;
+}
+
+.noUi-handle {
+	$handleSize: 22px;
+	$cos30: 0.866;
+
+	width: $handleSize !important;
+	height: $handleSize*$cos30 !important;
+
+	top: 5px !important;
+	margin-right: 5px;
+
+	background-color: transparent;
+	//border-width: 0;
+	border-radius: 0;
+	box-shadow: none;
+
+	box-sizing: border-box;
+	border-color: transparent transparent white transparent;
+	border-width: 0 $handleSize/2 $handleSize*$cos30 $handleSize/2;
+
+	&::after, &::before {
+		display: none;
+	}
+}
+
+#joke {
+	font-weight: 500;
+	margin: 0;
+	padding: 25px;
+	color: white;
+	cursor: pointer;
+}
+
+

@@ -1,18 +1,17 @@
-/* Set the width of the side navigation to 250px */
 function openNav() {
-	document.getElementById("sidenav").style.width = "250px";
-	document.getElementById("top").style.marginLeft = "250px";
-	document.getElementById("main").style.marginLeft = "250px";
-	document.getElementById("bottom").style.marginLeft = "250px";
+	$('#sidenav').addClass('open');
+	$('#top').css('marginLeft', '250px');
+	$('#main').css('marginLeft', '250px');
+	$('#bottom').css('marginLeft', '250px');
 }
 
-/* Set the width of the side navigation to 0 */
 function closeNav() {
-	document.getElementById("sidenav").style.width = "0";
-	document.getElementById("top").style.marginLeft = "0"
-	document.getElementById("main").style.marginLeft = "0";
-	document.getElementById("bottom").style.marginLeft = "0";
+	$('#sidenav').removeClass('open');
+	$('#top').css('marginLeft','0');
+	$('#main').css('marginLeft','0');
+	$('#bottom').css('marginLeft','0');
 }
+
 
 $(document).ready(function () {
 
@@ -25,11 +24,51 @@ $(document).ready(function () {
 	});
 
 	$('#hexagon').click(function() {
-		$('.button span').toggleClass('pause play');
+		var button = $('.button span');
+		var player = document.getElementById('player');
+		if (button.hasClass('play'))
+		{
+			player.play();
+		}
+		else
+		{
+			player.pause();
+		}
+		button.toggleClass('play pause');
 	});
 
+	$('#joke').click(function () {
+		$.get( "https://raw.githubusercontent.com/fiztehradio/daily-jokes/master/joke.txt", function( data ) {
+			$('#joke').css('font-weight', 400);
+			$('#joke').css('cursor', 'default');
+			$('#joke').html(data);
+		});
+
+	});
+
+
+	var slider = document.getElementById('volume-control');
+
+	noUiSlider.create(slider, {
+		start: [80],
+		connect: [true, false],
+		range: {
+			'min': 0,
+			'max': 100
+		}
+	});
+
+	slider.noUiSlider.on('update', function() {
+		player.volume = slider.noUiSlider.get() / 100;
+	})
 
 });
 
 
+// ************************************ //
+// 				 Streaming				//
+// ************************************ //
 
+$(function () {
+
+});

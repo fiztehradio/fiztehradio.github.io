@@ -6,7 +6,7 @@ $color: black;	//#20c997
 $sqrt3: 1.73205;
 $tg30: 0.57735026919;
 
-$hexagonHeight: 120px;
+$hexagonHeight: 100px;
 $edgeSize: $hexagonHeight * $tg30;
 $hexagonWidth: $edgeSize * $sqrt3;
 
@@ -39,9 +39,9 @@ $hexagonWidth: $edgeSize * $sqrt3;
 	border-top: $edgeSize/2 solid $backgroundColor;
 }
 
-$playButtonWidth: 48px;	// Должно быть кратно 6, чтобы ровно отображалось
+$playButtonWidth: 36px;	// Должно быть кратно 6, чтобы ровно отображалось
 $playButtonHeight: $playButtonWidth;
-$playButtonColor: #ed4343;
+$playButtonColor: #f04244;
 
 * {
 	transition: all 0.1s linear;
