@@ -82,7 +82,7 @@ $(function () {
     });
 
     function loadNowPlaying() {
-        $.getJSON('https://radio.mipt.ru:8443/api/nowplaying/1', function (row) {
+        $.getJSON('https://phystech.tv/api/nowplaying/1', function (row) {
             nowPlaying.np = row;
             songHistory.history = row.song_history;
 
