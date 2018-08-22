@@ -82,12 +82,42 @@ h1 {
 	text-align: center;
 }
 
+
+
+#middle-line {
+	width: 300px;
+}
+
+#playlist, #social {
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	border-radius: 50%;
+}
+
+#playlist {
+	float: left;
+}
+
+#social {
+	//top: 100px;
+	float: right;
+}
+
+
+
+
+
+
+
+
 #volume {
 	cursor: pointer;
 }
 
 #volume-control {
-	margin-top: 80px;
+	width: 150px;
+	margin: 80px auto;
 
 	* {
 		transition: none;
@@ -111,23 +141,33 @@ h1 {
 }
 
 .noUi-handle {
-	$handleSize: 22px;
+	$handleSize: 18px;
 	$cos30: 0.866;
 
 	width: $handleSize !important;
-	height: $handleSize*$cos30 !important;
+	height: $handleSize !important;
 
-	top: 5px !important;
-	margin-right: 5px;
+	margin-right: 6px;
 
-	background-color: transparent;
-	//border-width: 0;
+	background-color: white;
+	transform: rotate(45deg);
+	border: none;
 	border-radius: 0;
-	box-shadow: none;
+	user-select: none;
 
-	box-sizing: border-box;
-	border-color: transparent transparent white transparent;
-	border-width: 0 $handleSize/2 $handleSize*$cos30 $handleSize/2;
+	// Triangle
+	//top: 5px !important;
+
+	//background-color: transparent;
+	//height: $handleSize*$cos30 !important;
+
+	//background-color: transparent;
+	//border-radius: 0;
+	//box-shadow: none;
+
+	//box-sizing: border-box;
+	//border-color: transparent transparent white transparent;
+	//border-width: 0 $handleSize/2 $handleSize*$cos30 $handleSize/2;
 
 	&::after, &::before {
 		display: none;

@@ -84,12 +84,33 @@ h1 {
   text-align: center;
 }
 
+#middle-line {
+  width: 300px;
+}
+
+#playlist,
+#social {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#playlist {
+  float: left;
+}
+
+#social {
+  float: right;
+}
+
 #volume {
   cursor: pointer;
 }
 
 #volume-control {
-  margin-top: 80px;
+  width: 150px;
+  margin: 80px auto;
 }
 
 #volume-control * {
@@ -114,18 +135,18 @@ h1 {
 }
 
 .noUi-handle {
-  width: 22px !important;
-  height: 19.052px !important;
-  top: 5px !important;
-  margin-right: 5px;
-  background-color: transparent;
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 6px;
+  background-color: white;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: 0;
   border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-color: transparent transparent white transparent;
-  border-width: 0 11px 19.052px 11px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .noUi-handle::after,
