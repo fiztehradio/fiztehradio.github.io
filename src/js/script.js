@@ -12,6 +12,18 @@ function closeNav() {
 	$('#bottom').css('marginLeft','0');
 }
 
+var updateSongTimer = setTimeout(updateSong, 0);
+
+function updateSong() {
+	$.get("https://phystech.tv/api/nowplaying", function(data) {
+		var song = data[0].now_playing.song;
+		$('#song-artist').html(song.artist);
+		$('#song-title').html(song.title);
+		updateSongTimer = setTimeout(updateSong, 5000);
+	});
+}
+
+
 
 $(document).ready(function () {
 
@@ -60,7 +72,10 @@ $(document).ready(function () {
 
 	slider.noUiSlider.on('update', function() {
 		player.volume = slider.noUiSlider.get() / 100;
-	})
+	});
+
+
+
 
 });
 
