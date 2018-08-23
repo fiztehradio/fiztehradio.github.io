@@ -20,6 +20,15 @@ function updateSong() {
 		$('#song-artist').html(song.artist);
 		$('#song-title').html(song.title);
 		updateSongTimer = setTimeout(updateSong, 5000);
+		console.log(data[0]);
+
+		var hist = data[0].song_history;
+		$('#current-track').html(song.text);
+		$('#last-track-1').html(hist[0].song.text);
+		$('#last-track-2').html(hist[1].song.text)
+		$('#last-track-3').html(hist[2].song.text)
+		$('#next-track').html(data[0].playing_next.song.text)
+
 	});
 }
 
@@ -76,7 +85,20 @@ $(document).ready(function () {
 
 	$('#playlist').click(function() {
 		$('#myDropdown').toggleClass("show");
+		$('#playlist-arrow').toggleClass("show");
 	});
+
+	$('#like').click(function () {
+		$.post("https://us-central1-phystechradio.cloudfunctions.net/like", function () {
+			console.log('like');
+		});
+	});
+
+	$('#dislike').click(function () {
+		$.post("https://us-central1-phystechradio.cloudfunctions.net/like", function () {
+			console.log('dislike');
+		});
+	})
 
 });
 
