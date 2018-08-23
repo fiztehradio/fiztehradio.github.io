@@ -111,68 +111,6 @@ h1 {
 
 
 
-#volume {
-	cursor: pointer;
-}
-
-#volume-control {
-	width: 150px;
-	margin: 80px auto;
-
-	* {
-		transition: none;
-	}
-}
-
-.noUi-target {
-	border: none;
-}
-
-.noUi-horizontal {
-	height: 5px;
-}
-
-.noUi-connects {
-	background-color: $red;
-}
-
-.noUi-connect {
-	background-color: white;
-}
-
-.noUi-handle {
-	$handleSize: 18px;
-	$cos30: 0.866;
-
-	width: $handleSize !important;
-	height: $handleSize !important;
-
-	margin-right: 6px;
-
-	background-color: white;
-	transform: rotate(45deg);
-	border: none;
-	border-radius: 0;
-	user-select: none;
-
-	// Triangle
-	//top: 5px !important;
-
-	//background-color: transparent;
-	//height: $handleSize*$cos30 !important;
-
-	//background-color: transparent;
-	//border-radius: 0;
-	//box-shadow: none;
-
-	//box-sizing: border-box;
-	//border-color: transparent transparent white transparent;
-	//border-width: 0 $handleSize/2 $handleSize*$cos30 $handleSize/2;
-
-	&::after, &::before {
-		display: none;
-	}
-}
 
 #joke {
 	font-weight: 500;

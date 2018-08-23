@@ -74,10 +74,28 @@ $(document).ready(function () {
 		player.volume = slider.noUiSlider.get() / 100;
 	});
 
-
-
+	$('#playlist').click(function() {
+		$('#myDropdown').toggleClass("show");
+	});
 
 });
+
+
+
+window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+};
+
 
 
 // ************************************ //

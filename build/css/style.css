@@ -1,3 +1,54 @@
+#volume {
+  cursor: pointer;
+}
+
+#volume-control {
+  width: 150px;
+  margin: 80px auto;
+}
+
+#volume-control * {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.noUi-target {
+  border: 0;
+}
+
+.noUi-horizontal {
+  height: 5px;
+}
+
+.noUi-connects {
+  background-color: #f04244;
+  cursor: pointer;
+}
+
+.noUi-connect {
+  background-color: white;
+}
+
+.noUi-handle {
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 6px;
+  background-color: white;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border: 0;
+  border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+  display: none;
+}
 html {
   font-family: "circe",sans-serif;
 }
@@ -104,62 +155,37 @@ h1 {
   float: right;
 }
 
-#volume {
-  cursor: pointer;
-}
-
-#volume-control {
-  width: 150px;
-  margin: 80px auto;
-}
-
-#volume-control * {
-  -webkit-transition: none;
-  transition: none;
-}
-
-.noUi-target {
-  border: 0;
-}
-
-.noUi-horizontal {
-  height: 5px;
-}
-
-.noUi-connects {
-  background-color: #f04244;
-}
-
-.noUi-connect {
-  background-color: white;
-}
-
-.noUi-handle {
-  width: 18px !important;
-  height: 18px !important;
-  margin-right: 6px;
-  background-color: white;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  border: 0;
-  border-radius: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.noUi-handle::after,
-.noUi-handle::before {
-  display: none;
-}
-
 #joke {
   font-weight: 500;
   margin: 0;
   padding: 25px;
   color: white;
   cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
 }
 #sidenav {
   height: 100%;
