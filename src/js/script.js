@@ -20,7 +20,6 @@ function updateSong() {
 		$('#song-artist').html(song.artist);
 		$('#song-title').html(song.title);
 		updateSongTimer = setTimeout(updateSong, 5000);
-		console.log(data[0]);
 
 		var hist = data[0].song_history;
 		$('#current-track').html(song.text);
