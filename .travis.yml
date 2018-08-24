@@ -1,0 +1,25 @@
+sudo: false
+language: node_js
+node_js:
+- '6.0'
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+  - website_2019
+notifications:
+  email: false
+before_script:
+- npm prune
+script:
+- npm run build
+- npm test
+after_success:
+- bash ./scripts/deploy.sh
+github-token: "$GITHUB_TOKEN"
+env:
+  global:
+  - GH_USER: fiztehradio
+  - GH_REPO: fiztehradio.github.io
+  - secure: xb2WFJUclJkTeMjHm1z+cNuUoFNOB4/7wrkMb+AgrgDqK2TDi+BRxhlRokV9scLA82nafHt0O7Tfb5QDOBVKQNY2YcWJDVPbIEeWyTKkc/WMe09+d4Ud+wVIqsBSicDqf12niacAk2ZXFUX15pr9r6WxYrQMNB0xywQY2fr4gL0nOYyUuKizZVWU9Im5bgl1zvaxx0cd45O4lx2Ur0E+P8enu4y7wGE+bStWoWAVpuY1c3qN6t8YVTAeFy9mss+JpYzfOI5E+mEhY20XUFS4QpgAukarywMaYAgJh6/4l3T8bl6vF2XybqIGCuPvXWOR1DQPMzboT1QDexv+ssC5ZNlT+t+Pc15oy/tP3lQ50VP30/hqaJKcIoG9Wqcxhj7hvTW3q/uCrhi/q1cg/OYdvh5va52VYlQsHKu+57w0TB4Q7pCI1W0n0GmjY1djO44yKfjL/UFAgaBU1IzeTxFkzNAeWCrt3TOS7eHpq8UJUYJNdODjbFe2fYf4CDnQ1pFbIotLDjNjOBrfh1Meo02qmUnD/l+ET5rV2VRR/SD0m75eRRzn3a8WD9hwTLEv6hnxeBM0LgTLE+f2UYu1Itrel1I7ChJ2I2rPW0u1/UElOgGZDm4osc+CdMFVC4lvbKZee7c3e7Mwp0GvKEiYd4wTr5Hg4wIEKuuMYFU8mwIDRdM=

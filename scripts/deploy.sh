@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e # exit with nonzero exit code if anything fails
+
+if [[ $TRAVIS_BRANCH == "website_2019" && $TRAVIS_PULL_REQUEST == "false" ]]; then
+
+echo "Starting to update gh-pages\n"
+
+#copy data we're interested in to other place
+cp -R build $HOME/build_$TRAVIS_BUILD_NUMBER
+
+#go to home and setup git
+cd $HOME
+git config --global user.email "travis@travis-ci.org"
+git config --global user.name "Travis"
+
+#using token clone gh-pages branch
+git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${GH_USER}/${GH_REPO}.git gh-pages > /dev/null
+
+#go into directory and copy data we're interested in to that directory
+cd gh-pages
+git rm -rf .  # remove old files
+cp -Rf $HOME/build_$TRAVIS_BUILD_NUMBER/* .
+
+echo "[View live](https://${GH_USER}.github.io/${GH_REPO}/)" > README.md
+echo "radiomipt.ru" > CNAME
+
+#add, commit and push files
+git add -f .
+git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
+git push -fq origin gh-pages > /dev/null
+
+echo "Done updating gh-pages\n"
+
+else
+ echo "Skipped updating gh-pages, because build is not triggered from the proper branch."
+fi;
