@@ -137,22 +137,7 @@ h1 {
 
 #middle-line {
   width: 300px;
-}
-
-#playlist,
-#social {
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-}
-
-#playlist {
-  float: left;
-}
-
-#social {
-  float: right;
+  margin: auto;
 }
 
 #joke {
@@ -162,29 +147,115 @@ h1 {
   color: white;
   cursor: pointer;
 }
+#playlist,
+#social {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#playlist {
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#social {
+  float: right;
+}
+
+.playlist-icon {
+  pointer-events: none;
+}
+
+.playlist-icon-circle,
+.playlist-icon-line {
+  background-color: #f04244;
+}
+
+.playlist-icon-circle:not(:nth-last-child(1)):not(:nth-last-child(2)),
+.playlist-icon-line:not(:nth-last-child(1)):not(:nth-last-child(2)) {
+  margin-bottom: 2px;
+}
+
+.playlist-icon-circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  float: left;
+  clear: both;
+}
+
+.playlist-icon-line {
+  float: left;
+  width: 15px;
+  height: 3px;
+  margin: 1px 0 1px 3px;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
 .dropdown-content {
-  display: none;
+  height: 0;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
+  -webkit-transform: translate(0,-120%);
+  transform: translate(0,-120%);
+  background-color: #f04244;
+  width: 300px;
+  overflow: hidden;
   -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .dropdown-content a {
-  color: black;
+  height: 23px;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
+.dropdown-content a.playlist-current-track {
+  background-color: white;
+  color: #f04244;
+  font-weight: 900;
 }
 
-.show {
+.dropdown-content.show {
+  height: 235px;
+}
+
+#playlist-arrow {
+  width: 50px;
+  height: 15px;
+  display: none;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 15px 25px 0 25px;
+  border-color: #f04244 transparent transparent transparent;
+}
+
+#playlist-arrow.show {
   display: block;
 }
 #sidenav {
