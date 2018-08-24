@@ -88,14 +88,12 @@ $(document).ready(function () {
 	});
 
 	$('#like').click(function () {
-		$.post("https://us-central1-phystechradio.cloudfunctions.net/like", function () {
-			console.log('like');
+		$.post("https://us-central1-phystechradio.cloudfunctions.net/like-node", function () {
 		});
 	});
 
 	$('#dislike').click(function () {
-		$.post("https://us-central1-phystechradio.cloudfunctions.net/like", function () {
-			console.log('dislike');
+		$.post("https://us-central1-phystechradio.cloudfunctions.net/dislike-node", function () {
 		});
 	})
 
