@@ -24,16 +24,22 @@ function updateSong() {
 		var hist = data[0].song_history;
 		$('#current-track').html(song.text);
 		$('#last-track-1').html(hist[0].song.text);
-		$('#last-track-2').html(hist[1].song.text)
-		$('#last-track-3').html(hist[2].song.text)
+		$('#last-track-2').html(hist[1].song.text);
+		$('#last-track-3').html(hist[2].song.text);
 		$('#next-track').html(data[0].playing_next.song.text)
 
 	});
 }
 
+function animateClick(e) {
+	e.removeClass("click-scale-animation");
+	e.width();
+	e.addClass("click-scale-animation");
+}
 
 
-$(document).ready(function () {
+
+$(function () {
 
 	$('#nav-icon').click(function () {
 		$(this).toggleClass('open');
@@ -44,26 +50,38 @@ $(document).ready(function () {
 	});
 
 	$('#hexagon').click(function() {
+
+		// Запуск анимации
+		animateClick($(this));
+
+		// Переключение кнопки play/pause
 		var button = $('.button span');
 		var player = document.getElementById('player');
 		if (button.hasClass('play'))
 		{
+			document.getElementById('player').src = "https://phystech.tv/radio/8000/fiztehradio";
 			player.play();
 		}
 		else
 		{
 			player.pause();
+			document.getElementById('player').src = "";
 		}
 		button.toggleClass('play pause');
+		$('.button').toggleClass('play pause');
 	});
 
-	$('#joke').click(function () {
-		$.get( "https://raw.githubusercontent.com/fiztehradio/daily-jokes/master/joke.txt", function( data ) {
-			$('#joke').css('font-weight', 400);
-			$('#joke').css('cursor', 'default');
-			$('#joke').html(data);
-		});
+	$('#bottom').click(function () {
 
+		var a = $('#bottom-text');
+		$(this).toggleClass('open');
+		a.toggleClass('open');
+
+		if ($(this).hasClass('open')) {
+			$.get( "https://raw.githubusercontent.com/fiztehradio/daily-jokes/master/joke.txt", function( data ) {
+				a.html(data);
+			});
+		}
 	});
 
 
@@ -83,9 +101,20 @@ $(document).ready(function () {
 	});
 
 	$('#playlist').click(function() {
-		$('#myDropdown').toggleClass("show");
-		$('#playlist-arrow').toggleClass("show");
+		$('#myDropdown').toggleClass('show');
+		$('#playlist').toggleClass('open');
+		$('#playlist-arrow').toggleClass('show');
+		$('.playlist-icon-circle').toggleClass('open');
+		$('.playlist-icon-line').toggleClass('open');
 	});
+
+	$('#social').click(function() {
+		$('#social').toggleClass('open');
+		$('.social-icon').toggleClass('open');
+		$('.social-icon-circle').toggleClass('open');
+		$('.social-icon-line').toggleClass('open');
+	});
+
 
 	$('#like').click(function () {
 		$.post("https://us-central1-phystechradio.cloudfunctions.net/like-node", function () {
@@ -98,22 +127,6 @@ $(document).ready(function () {
 	})
 
 });
-
-
-
-window.onclick = function(event) {
-	if (!event.target.matches('.dropbtn')) {
-
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
-};
 
 
 

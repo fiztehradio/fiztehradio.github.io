@@ -1,4 +1,4 @@
-$red: #f04244;
+$red: rgb(240, 65, 69);
 
 #volume {
 	cursor: pointer;
@@ -6,7 +6,12 @@ $red: #f04244;
 
 #volume-control {
 	width: 150px;
-	margin: 80px auto;
+	margin: 100px auto 0 auto;
+
+
+	@media (max-height: 700px) {
+		margin: 0 auto;
+	}
 
 	* {
 		transition: none;

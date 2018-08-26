@@ -81,12 +81,12 @@
 	<a href="#">Теорема Коши</a>
 </div>
 
-<div id="nav-icon">
-	<span></span>
-	<span></span>
-	<span></span>
-	<span></span>
-</div>
+<!--<div id="nav-icon">-->
+	<!--<span></span>-->
+	<!--<span></span>-->
+	<!--<span></span>-->
+	<!--<span></span>-->
+<!--</div>-->
 
 
 <div id="top">
@@ -109,42 +109,50 @@
 
 		<div id="middle-line">
 
-			<div class="dropdown">
-				<div id="playlist" class="dropbtn">
-					<div class="playlist-icon">
-						<div class="playlist-icon-circle"></div>
-						<div class="playlist-icon-line"></div>
-						<div class="playlist-icon-circle"></div>
-						<div class="playlist-icon-line"></div>
-						<div class="playlist-icon-circle last-child"></div>
-						<div class="playlist-icon-line last-child"></div>
+			<div id="playlist-and-social">
+
+					<div id="playlist" class="dropbtn">
+						<div class="playlist-icon">
+							<div class="icon-circle playlist-icon-circle"></div>
+							<div class="icon-line playlist-icon-line"></div>
+							<div class="icon-circle playlist-icon-circle"></div>
+							<div class="icon-line playlist-icon-line"></div>
+							<div class="icon-circle playlist-icon-circle"></div>
+							<div class="icon-line playlist-icon-line"></div>
+						</div>
+						<div class="dropdown">
+							<div id="myDropdown" class="dropdown-content">
+								<a id="last-track-3" class="previous-track"></a>
+								<a id="last-track-2" class="previous-track"></a>
+								<a id="last-track-1" class="previous-track"></a>
+								<a id="current-track" class="playlist-current-track"></a>
+								<a id="next-track" class="next-track"></a>
+								<div id="playlist-arrow"></div>
+							</div>
+						</div>
+					</div>
+
+
+				<div id="social">
+					<div class="social-icon">
+						<div class="icon-circle social-icon-circle"></div>
+						<div class="icon-line social-icon-line"></div>
+						<div class="icon-circle social-icon-circle"></div>
+						<div class="icon-line social-icon-line"></div>
+						<div class="icon-circle social-icon-circle"></div>
 					</div>
 				</div>
-				<div id="myDropdown" class="dropdown-content">
-					<a id="last-track-3"></a>
-					<a id="last-track-2"></a>
-					<a id="last-track-1"></a>
-					<a id="current-track" class="playlist-current-track"></a>
-					<a id="next-track"></a>
-				</div>
-				<!--<div id="playlist-arrow"></div>-->
-			</div>
 
-			<div id="social"></div>
+			</div>
 
 			<div id="hexagon">
-				<div class="button">
+				<div class="button play">
 					<span class="play"></span>
 					<span class="play"></span>
 				</div>
 			</div>
 
-
 		</div>
-
-		<!--<div id="center-bottom">-->
-		<!--<input id="volume" type="range" min="0" max="100" value="50" class="slider">-->
-		<!--</div>-->
 
 		<div id="volume-control"></div>
 
@@ -154,13 +162,8 @@
 
 
 <div id="bottom">
-	<p id="joke">Физтехи шутят каждый день</p>
-	<!--<div id="slidecontainer">-->
-	<!--<i class="fas fa-volume-down"></i>-->
-	<!--<input type="range" min="0" max="100" value="50"-->
-	<!--class="slider" id="volumeInput">-->
-	<!--<i class="fas fa-volume-up"></i>-->
-	<!--</div>-->
+	<p id="bottom-header">Физтехи шутят каждый день</p>
+	<p id="bottom-text">Загружаем инфу...</p>
 </div>
 
 

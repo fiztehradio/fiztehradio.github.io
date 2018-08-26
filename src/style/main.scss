@@ -1,4 +1,6 @@
-$red: #f04244;
+$red: rgb(240, 65, 69);
+
+
 
 html {
 	font-family: "circe", sans-serif;
@@ -10,11 +12,6 @@ body {
 	background-color: #1d865b;
 }
 
-#main, #top, #bottom {
-	transition: margin-left .5s;
-	//padding: 20px;
-}
-
 #top {
 	position: fixed;
 	top: 0;
@@ -23,6 +20,15 @@ body {
 	background-color: transparent;
 	text-align: center;
 }
+
+* {
+	transition: all .5s ease, height 1ms;
+}
+
+
+//
+// main
+//
 
 #main {
 	position: fixed;
@@ -38,14 +44,6 @@ body {
 	margin: 0;
 }
 
-#bottom {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	//height: 10vh;
-	background-color: $red;
-	text-align: center;
-}
 
 h1 {
 	font-size: 1.5em;
@@ -53,6 +51,14 @@ h1 {
 	margin: 0;
 	padding: 20px 30px;
 	color: white;
+
+	@media (max-width: 400px) {
+		font-size: 1.2em;
+	}
+}
+
+#centered {
+	margin-bottom: 50px;
 }
 
 #info {
@@ -84,25 +90,60 @@ h1 {
 
 
 
-#middle-line {
-	width: 300px;
-	margin: auto;
+
+//
+// bottom
+//
+
+#bottom {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+
+	background-color: $red;
+	cursor: pointer;
+
+	transition: height .5s;
+
+	height: 83px;
+	@media (max-width: 400px) {
+		height: 67px;
+	}
+
+	&.open {
+		height: 100vh;
+	}
 }
 
+#bottom-header,#bottom-text {
+	color: white;
+}
 
+#bottom-header {
+	font-size: 1.5em;
+	font-weight: 600;
 
+	@media (max-width: 400px) {
+		font-size: 1.2em;
+	}
 
+	white-space: nowrap;
+}
 
+#bottom-text {
+	position: relative;
+	top: 45%;
 
-
-
-
-#joke {
-	font-weight: 500;
+	font-weight: 400;
 	margin: 0;
 	padding: 25px;
-	color: white;
-	cursor: pointer;
+	//height: 100%;
+	vertical-align: middle;
+
+	&.open {
+		transform: translate(0, -50%);
+	}
 }
 
 
