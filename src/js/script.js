@@ -113,6 +113,8 @@ $(function () {
 		$('.social-icon').toggleClass('open');
 		$('.social-icon-circle').toggleClass('open');
 		$('.social-icon-line').toggleClass('open');
+		$('#playlist-and-social').toggleClass('open');
+		$('.social-share').toggleClass('open');
 	});
 
 
@@ -125,15 +127,5 @@ $(function () {
 		$.post("https://us-central1-phystechradio.cloudfunctions.net/dislike-node", function () {
 		});
 	})
-
-});
-
-
-
-// ************************************ //
-// 				 Streaming				//
-// ************************************ //
-
-$(function () {
 
 });
