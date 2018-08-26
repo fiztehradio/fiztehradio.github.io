@@ -288,7 +288,36 @@ h1 {
 
 @media (min-width:992px) {
   #playlist-and-social {
-    width: 750px;
+    width: 550px;
+  }
+}
+
+#playlist-and-social.open {
+  width: 460px;
+  margin-left: 180px;
+}
+
+@media (min-width:400px) {
+  #playlist-and-social.open {
+    width: 530px;
+  }
+}
+
+@media (min-width:576px) {
+  #playlist-and-social.open {
+    width: 680px;
+  }
+}
+
+@media (min-width:768px) {
+  #playlist-and-social.open {
+    width: 830px;
+  }
+}
+
+@media (min-width:992px) {
+  #playlist-and-social.open {
+    width: 730px;
   }
 }
 
@@ -306,6 +335,15 @@ h1 {
   #playlist-and-social {
     bottom: 55px;
   }
+}
+
+.white-circle {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 18px;
 }
 
 .icon-line,
@@ -328,16 +366,6 @@ h1 {
   transition: all .3s;
 }
 
-#playlist,
-#social {
-  width: 70px;
-  height: 70px;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-top: 18px;
-}
-
 #playlist.open,
 #social.open {
   background-color: #f04145;
@@ -357,7 +385,7 @@ h1 {
 }
 
 #playlist.open {
-  margin-left: 100px;
+  margin-left: 90px;
 }
 
 .playlist-icon {
@@ -434,6 +462,15 @@ h1 {
   transition: all .5s;
 }
 
+@media (max-width:1140px) {
+  .dropdown-content {
+    margin-left: 25px;
+    margin-top: 100px;
+    -webkit-transform: translate(-100%,0);
+    transform: translate(-100%,0);
+  }
+}
+
 .dropdown-content a {
   height: 24px;
   color: white;
@@ -482,6 +519,17 @@ h1 {
 
 #playlist-arrow.show {
   display: block;
+}
+
+@media (max-width:1140px) {
+  #playlist-arrow {
+    left: 80%;
+    top: -120%;
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+    border-width: 0 28px 28px 28px;
+    border-color: transparent transparent white transparent;
+  }
 }
 
 #social {
@@ -576,6 +624,19 @@ h1 {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   background-color: white;
+}
+
+.social-share {
+  float: right;
+  margin-left: 0;
+  height: 0;
+  width: 0;
+}
+
+.social-share.open {
+  margin-left: 20px;
+  width: 70px;
+  height: 70px;
 }
 #volume {
   cursor: pointer;
@@ -731,6 +792,7 @@ h1 {
 }
 
 .button {
+  pointer-events: none;
   position: relative;
   left: 60.06667px;
   top: 17.66667px;
