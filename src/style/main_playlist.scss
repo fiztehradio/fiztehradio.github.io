@@ -8,21 +8,26 @@ $red: rgb(240, 65, 69);
 		width: 350px + $offset;
 	}
 	@media (min-width: 576px) {
-		width: 500px + $offset;
+		width: 400px + $offset;
 	}
 	@media (min-width: 768px) {
-		width: 650px + $offset;
+		width: 500px + $offset;
 	}
 	@media (min-width: 992px) {
 		width: 550px + $offset;
 	}
 }
 
+#middle-line {
+	//border: white 3px solid;
+}
+
 #playlist-and-social {
 	@include playlist-width(0);
+
 	&.open {
-		@include playlist-width(180px);
-		margin-left: 180px;
+		@include playlist-width(270px);
+		margin-left: 270px;
 	}
 
 	@media (max-width: 576px) {
@@ -84,7 +89,7 @@ $red: rgb(240, 65, 69);
 	justify-content: center;
 
 	&.open {
-		margin-left: 90px;
+		//margin-left: 90px;
 	}
 }
 
@@ -256,6 +261,7 @@ $red: rgb(240, 65, 69);
 	pointer-events: none;
 	padding-left: 5px;
 
+
 	&.open {
 		padding-left: 0;
 		transform: rotate(45deg);
@@ -337,15 +343,26 @@ $red: rgb(240, 65, 69);
 
 .social-share {
 	float: right;
-	margin-left: 0;
-	height: 0;
-	width: 0;
-	//margin-top: 53px;
 
+	margin-left: -70px;
 	&.open {
 		margin-left: 20px;
-		width: 70px;
-		height: 70px;
-		//margin-top: 18px;
 	}
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#social-facebook svg{
+	height: 40px;
+}
+
+#social-vk svg {
+	height: 20px;
+}
+
+#social-twitter svg {
+	height: 27px;
+	margin-left: 2px;
 }
