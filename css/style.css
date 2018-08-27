@@ -5,7 +5,6 @@ html {
 body {
   padding: 0;
   margin: 0;
-  background-color: #1d865b;
 }
 
 #top {
@@ -74,6 +73,10 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
+  background-image: url("../img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 h1 {
@@ -138,11 +141,11 @@ h1 {
 }
 
 #like.voted .a {
-  fill: green;
+  fill: #f04145;
 }
 
 #dislike.voted .a {
-  fill: red;
+  fill: #f04145;
 }
 
 #song-artist {
@@ -354,13 +357,13 @@ h1 {
 
 @media (min-width:576px) {
   #playlist-and-social {
-    width: 500px;
+    width: 400px;
   }
 }
 
 @media (min-width:768px) {
   #playlist-and-social {
-    width: 650px;
+    width: 500px;
   }
 }
 
@@ -371,31 +374,31 @@ h1 {
 }
 
 #playlist-and-social.open {
-  width: 460px;
-  margin-left: 180px;
+  width: 550px;
+  margin-left: 270px;
 }
 
 @media (min-width:400px) {
   #playlist-and-social.open {
-    width: 530px;
+    width: 620px;
   }
 }
 
 @media (min-width:576px) {
   #playlist-and-social.open {
-    width: 680px;
+    width: 670px;
   }
 }
 
 @media (min-width:768px) {
   #playlist-and-social.open {
-    width: 830px;
+    width: 770px;
   }
 }
 
 @media (min-width:992px) {
   #playlist-and-social.open {
-    width: 730px;
+    width: 820px;
   }
 }
 
@@ -460,10 +463,6 @@ h1 {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-}
-
-#playlist.open {
-  margin-left: 90px;
 }
 
 .playlist-icon {
@@ -706,15 +705,33 @@ h1 {
 
 .social-share {
   float: right;
-  margin-left: 0;
-  height: 0;
-  width: 0;
+  margin-left: -70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .social-share.open {
   margin-left: 20px;
-  width: 70px;
-  height: 70px;
+}
+
+#social-facebook svg {
+  height: 40px;
+}
+
+#social-vk svg {
+  height: 20px;
+}
+
+#social-twitter svg {
+  height: 27px;
+  margin-left: 2px;
 }
 #volume {
   cursor: pointer;
