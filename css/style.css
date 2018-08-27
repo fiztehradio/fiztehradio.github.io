@@ -21,6 +21,43 @@ body {
   transition: all .5s ease,height 1ms;
 }
 
+#logo-image,
+#logo-text {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  z-index: 1000;
+  margin: 40px auto;
+}
+
+@media (max-height:650px) {
+  #logo-image,
+  #logo-text {
+    height: 40px;
+    margin: 20px auto;
+  }
+}
+
+#logo-image {
+  left: 40px;
+}
+
+@media (max-height:650px) {
+  #logo-image {
+    left: 20px;
+  }
+}
+
+#logo-text {
+  right: 40px;
+}
+
+@media (max-height:650px) {
+  #logo-text {
+    right: 20px;
+  }
+}
+
 #main {
   position: fixed;
   top: 0;
@@ -61,6 +98,53 @@ h1 {
   text-align: center;
 }
 
+@-webkit-keyframes like-click-scale-animation {
+  0%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes like-click-scale-animation {
+  0%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+.like-click-scale-animation {
+  -webkit-animation: like-click-scale-animation .3s ease;
+  animation: like-click-scale-animation .3s ease;
+}
+
+.vote {
+  margin: 20px 15px 0 15px;
+  width: 35px;
+  cursor: not-allowed;
+}
+
+.can-vote {
+  cursor: pointer;
+}
+
+#like.voted .a {
+  fill: green;
+}
+
+#dislike.voted .a {
+  fill: red;
+}
+
 #song-artist {
   font-size: 1.5em;
   font-weight: 900;
@@ -73,11 +157,6 @@ h1 {
   font-weight: 500;
   margin: 0;
   color: white;
-}
-
-.vote {
-  margin: 20px 15px 0 15px;
-  width: 35px;
 }
 
 #center-bottom {
@@ -193,7 +272,6 @@ h1 {
   top: 0;
   left: 25px;
   z-index: 1000;
-  width: 25px;
   height: 35px;
   margin: 20px auto;
   -webkit-transform: rotate(0);
@@ -642,20 +720,35 @@ h1 {
   cursor: pointer;
 }
 
-#volume-control {
-  width: 150px;
+#volume-controls {
   margin: 100px auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 @media (max-height:700px) {
-  #volume-control {
+  #volume-controls {
     margin: 0 auto;
   }
 }
 
-#volume-control * {
+#volume-controls * {
   -webkit-transition: none;
   transition: none;
+}
+
+#volume-slider {
+  width: 150px;
+  float: left;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .noUi-target {
@@ -694,6 +787,32 @@ h1 {
 .noUi-handle::after,
 .noUi-handle::before {
   display: none;
+}
+
+#volume-minus {
+  float: left;
+  height: 5px;
+  width: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+
+#volume-plus {
+  float: left;
+  height: 5px;
+  width: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+
+#volume-plus::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 5px;
+  background-color: white;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 @-webkit-keyframes click-scale-animation {
   0%, 100% {
