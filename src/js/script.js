@@ -13,6 +13,8 @@ function closeNav() {
 }
 
 var updateSongTimer = setTimeout(updateSong, 0);
+var lastVotedSongTitle;
+var currentSongTitle;
 
 function updateSong() {
 	$.get("https://phystech.tv/api/nowplaying", function(data) {
@@ -28,13 +30,20 @@ function updateSong() {
 		$('#last-track-3').html(hist[2].song.text);
 		$('#next-track').html(data[0].playing_next.song.text)
 
+		currentSongTitle = song.text;
+		if (lastVotedSongTitle !== currentSongTitle)
+		{
+			$('#like').removeClass('voted');
+			$('#dislike').removeClass('voted');
+			$('.vote').addClass('can-vote');
+		}
 	});
 }
 
-function animateClick(e) {
-	e.removeClass("click-scale-animation");
+function animateClick(e, a) {
+	e.removeClass(a);
 	e.width();
-	e.addClass("click-scale-animation");
+	e.addClass(a);
 }
 
 
@@ -52,7 +61,7 @@ $(function () {
 	$('#hexagon').click(function() {
 
 		// Запуск анимации
-		animateClick($(this));
+		animateClick($(this), "click-scale-animation");
 
 		// Переключение кнопки play/pause
 		var button = $('.button span');
@@ -85,7 +94,7 @@ $(function () {
 	});
 
 
-	var slider = document.getElementById('volume-control');
+	var slider = document.getElementById('volume-slider');
 
 	noUiSlider.create(slider, {
 		start: [80],
@@ -98,6 +107,16 @@ $(function () {
 
 	slider.noUiSlider.on('update', function() {
 		player.volume = slider.noUiSlider.get() / 100;
+	});
+
+	$('#volume-minus').click(function() {
+		player.volume = player.volume - 0.1;
+		slider.noUiSlider.set(player.volume * 100);
+	});
+
+	$('#volume-plus').click(function() {
+		player.volume = player.volume + 0.1;
+		slider.noUiSlider.set(player.volume * 100);
 	});
 
 	$('#playlist').click(function() {
@@ -119,13 +138,45 @@ $(function () {
 
 
 	$('#like').click(function () {
+		if (lastVotedSongTitle === currentSongTitle)
+		{
+			console.log('already voted');
+			return;
+		}
+
+		animateClick($(this), "like-click-scale-animation");
+		$('.vote').removeClass('can-vote');
+
+		lastVotedSongTitle = currentSongTitle;
+
 		$.post("https://us-central1-phystechradio.cloudfunctions.net/like-node", function () {
+			$('#like').toggleClass('voted');
+		}).fail(function() {
+			lastVotedSongTitle = "";
+			$('.vote').addClass('can-vote');
 		});
+
 	});
 
 	$('#dislike').click(function () {
+		if (lastVotedSongTitle === currentSongTitle)
+		{
+			console.log('already voted');
+			return;
+		}
+
+		animateClick($(this), "like-click-scale-animation");
+		$('.vote').removeClass('can-vote');
+
+		lastVotedSongTitle = currentSongTitle;
+
 		$.post("https://us-central1-phystechradio.cloudfunctions.net/dislike-node", function () {
+			$('#dislike').toggleClass('voted');
+		}). fail(function() {
+			lastVotedSongTitle = "";
+			$('.vote').addClass('can-vote');
 		});
+
 	})
 
 });
