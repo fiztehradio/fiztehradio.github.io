@@ -12,7 +12,7 @@ const concatCss = require('gulp-concat-css');
 const browserSync = require("browser-sync");
 const reload = browserSync.reload;
 const plumber = require('gulp-plumber');
-const php = require('gulp-connect-php');
+// const php = require('gulp-connect-php');
 
 const path = {
 	src: { // Исходники
@@ -123,16 +123,16 @@ gulp.task('watch', function () {
 	});
 });
 
-gulp.task('php', function () {
-	php.server({base: 'build', port: 8010, keepalive: true});
-});
+// gulp.task('php', function () {
+// 	php.server({base: 'build', port: 8010, keepalive: true});
+// });
 
 gulp.task('webserver', function () {
 	browserSync({
-		proxy: '127.0.0.1:8010',
-		// server: {
-		// 	baseDir: "./build"
-		// },
+		// proxy: '127.0.0.1:8010',
+		server: {
+			baseDir: "./build"
+		},
 		tunnel: true,
 		host: 'localhost',
 		port: 9001,
@@ -150,4 +150,4 @@ gulp.task('build', [
 	'build-fonts'
 ]);
 
-gulp.task('default', ['build', 'php', 'webserver', 'watch']);
+gulp.task('default', ['build', 'webserver', 'watch']);
