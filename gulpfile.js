@@ -120,6 +120,13 @@ gulp.task('build-favicon', function () {
 		.pipe(reload({stream: true}));
 });
 
+gulp.task('build-chat', function () {
+	gulp.src('src/chat/**/*.*')
+	 .pipe(gulp.dest('build/chat/'))
+	 .pipe(reload({stream: true}));
+   });
+   
+
 gulp.task('watch', function () {
 	gulp.watch([path.watch.html], function (event, cb) {
 		gulp.start('build-html');
@@ -163,7 +170,8 @@ gulp.task('build', [
 	'build-php',
 	'build-img',
 	'build-fonts',
-	'build-favicon'
+	'build-favicon',
+	'build-chat'
 ]);
 
 gulp.task('default', ['build', 'webserver', 'watch']);
