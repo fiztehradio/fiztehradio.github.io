@@ -14,7 +14,8 @@ $edgeSize: $playButtonHeight * 5/3;
 $hexagonHeight: $edgeSize / $tg30;
 $hexagonWidth: $edgeSize * $sqrt3;
 
-$hexagonMobileScale: 0.7;
+$hexagonMobileScale_1: 0.7;
+$hexagonMobileScale_2: $hexagonMobileScale_1 * 0.7;
 
 
 @keyframes click-scale-animation {
@@ -26,13 +27,24 @@ $hexagonMobileScale: 0.7;
 	}
 }
 
-@media (max-width: 576px) {
+@media (max-width: 400px), (max-height: 576px) {
 	@keyframes click-scale-animation {
 		0%, 100% {
-			transform: scale($hexagonMobileScale);
+			transform: scale($hexagonMobileScale_1);
 		}
 		50% {
-			transform: scale($hexagonMobileScale * 0.97);
+			transform: scale($hexagonMobileScale_1 * 0.97);
+		}
+	}
+}
+
+@media (max-height: 400px) {
+	@keyframes click-scale-animation {
+		0%, 100% {
+			transform: scale($hexagonMobileScale_2);
+		}
+		50% {
+			transform: scale($hexagonMobileScale_2 * 0.97);
 		}
 	}
 }
@@ -50,11 +62,18 @@ $hexagonMobileScale: 0.7;
 	margin: $edgeSize/2 + 20px auto;
 
 	@media (max-width: 576px) {
-		transform: scale($hexagonMobileScale);
+		transform: scale($hexagonMobileScale_1);
 	}
 
 	@media (max-height: 576px) {
+		transform: scale($hexagonMobileScale_1);
 		margin: $edgeSize/4 auto $edgeSize/2 auto;
+	}
+
+	@media (max-height: 400px) {
+		transform: scale($hexagonMobileScale_2);
+		//margin: 0 auto;
+		margin: -30px auto 20px auto;
 	}
 }
 

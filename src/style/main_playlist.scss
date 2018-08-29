@@ -9,7 +9,13 @@ $shareButtonMargin: 20px;
 	background-color: white;
 	border-radius: 50%;
 	cursor: pointer;
-	//margin-top: 18px;
+
+
+
+	@media (max-width: 576px), (max-height: 576px) {
+		width: 60px;
+		height: 60px;
+	}
 }
 
 .icon-line, .icon-circle {
@@ -31,7 +37,7 @@ $shareButtonMargin: 20px;
 	transition: all 0.3s;
 }
 
-#playlist, #social {
+.playlist, .share-top {
 	&.open {
 		background-color: $red;
 	}
@@ -41,25 +47,9 @@ $shareButtonMargin: 20px;
 //		playlist
 ////////////////////
 
-#playlist {
-	position: relative;
-	float: left;
-
-	//@media (min-width: 576px) {
-	//	top: 108px - $whiteCircleSize/2;
-	//	left: -150px;
-	//}
-	//
-	//@media (max-width: 576px) {
-	//	position: absolute;
-	//	left: $whiteCircleSize/2;
-	//	bottom: 83px;	// Связано с высотой #bottom
-	//}
-
+.playlist {
 
 	@media (max-width: 576px) {
-		position: absolute;
-		left: $whiteCircleSize/2;
 		bottom: 83px;	// Связано с высотой #bottom
 	}
 
@@ -83,6 +73,26 @@ $shareButtonMargin: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+#playlist-mobile {
+	position: fixed;
+	left: 15px;
+	display: none;
+
+	@media (max-width: 576px) {
+		display: flex;
+	}
+}
+
+#playlist-desktop {
+	position: relative;
+	float: left;
+	display: none;
+
+	@media (min-width: 576px) {
+		display: flex;
+	}
 }
 
 .playlist-icon {
@@ -193,7 +203,7 @@ $shareButtonMargin: 20px;
 			font-weight: 900;
 		}
 
-		&.playlist-current-track {
+		&.current-track {
 			background-color: white;
 			color: $red;
 			font-weight: 900;
@@ -220,7 +230,7 @@ $shareButtonMargin: 20px;
 	}
 }
 
-#playlist-arrow {
+.playlist-arrow {
 	position: relative;
 	left: 100%;
 	top: -30%;
@@ -263,17 +273,15 @@ $shareButtonMargin: 20px;
 
 
 ////////////////////
-//		social
+//		share
 ////////////////////
 
 
-#social {
-	position: relative;
-	float: right;
+.share {
+
+	z-index: 9999;
 
 	@media (max-width: 576px) {
-		position: absolute;
-		right: $whiteCircleSize/2;
 		bottom: 83px;	// Связано с высотой #bottom
 	}
 
@@ -293,13 +301,35 @@ $shareButtonMargin: 20px;
 	@media (min-width: 1350px) {
 		left: 200px;
 	}
+}
 
+#share-mobile {
+	position: fixed;
+	right: 15px;
+	display: none;
+
+	@media (max-width: 576px) {
+		display: flex;
+	}
+}
+
+#share-desktop {
+	position: relative;
+	float: right;
+	display: none;
+
+	@media (min-width: 576px) {
+		display: flex;
+	}
+}
+
+.share-top {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.social-icon {
+.share-icon {
 	pointer-events: none;
 	padding-left: 5px;
 
@@ -310,13 +340,13 @@ $shareButtonMargin: 20px;
 	}
 }
 
-.social-icon-circle, .social-icon-line {
+.share-icon-circle, .share-icon-line {
 	&:not(:nth-last-child(1)):not(:nth-last-child(2)) {
 		margin-bottom: 2px;
 	}
 }
 
-.social-icon-circle {
+.share-icon-circle {
 	float: left;
 
 	&:nth-child(1) {
@@ -343,7 +373,7 @@ $shareButtonMargin: 20px;
 	}
 }
 
-.social-icon-line {
+.share-icon-line {
 	float: left;
 	width: 13px;
 
@@ -383,7 +413,7 @@ $shareButtonMargin: 20px;
 	}
 }
 
-.social-share {
+.share-social {
 	position: absolute;
 	bottom: 0;
 
@@ -396,41 +426,41 @@ $shareButtonMargin: 20px;
 	&.open {
 
 		@media (min-width: 1251px) {
-			&:nth-child(2) {
-				margin-left: ($whiteCircleSize + $shareButtonMargin)*3;
-			}
-			&:nth-child(3) {
+			&:nth-child(1) {
 				margin-left: ($whiteCircleSize + $shareButtonMargin)*2;
 			}
-			&:nth-child(4) {
-				margin-left: ($whiteCircleSize + $shareButtonMargin);
+			&:nth-child(2) {
+				margin-left: ($whiteCircleSize + $shareButtonMargin)*1;
 			}
+			//&:nth-child(3) {
+			//	margin-left: ($whiteCircleSize + $shareButtonMargin);
+			//}
 		}
 
 		@media (max-width: 1250px) {
-			&:nth-child(2) {
-				bottom: ($whiteCircleSize + $shareButtonMargin)*3;
-			}
-			&:nth-child(3) {
+			&:nth-child(1) {
 				bottom: ($whiteCircleSize + $shareButtonMargin)*2;
 			}
-			&:nth-child(4) {
-				bottom: ($whiteCircleSize + $shareButtonMargin);
+			&:nth-child(2) {
+				bottom: ($whiteCircleSize + $shareButtonMargin)*1;
+			//}
+			//&:nth-child(3) {
+			//	bottom: ($whiteCircleSize + $shareButtonMargin);
 			}
 		}
 
 	}
 }
 
-#social-facebook svg{
+.share-facebook svg{
 	height: 40px;
 }
 
-#social-vk svg {
+.share-vk svg {
 	height: 20px;
 }
 
-#social-twitter svg {
+.share-twitter svg {
 	height: 27px;
 	margin-left: 2px;
 }

@@ -1,5 +1,15 @@
 $red: rgb(240, 65, 69);
 
+* {
+	user-select: none;
+	outline: none;
+	&:focus {
+		user-select: none;
+		outline: none;
+	}
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
 html {
 	font-family: "circe", sans-serif;
 }
@@ -39,18 +49,18 @@ body {
 
 #logo-image {
 	left: 40px;
-	@media (max-height: 650px) {
-		left: 20px;
+	@media (max-height: 576px) {
+		left: 15px;
 	}
 }
 
 #logo-text {
 	right: 40px;
-	@media (max-height: 650px) {
-		right: 20px;
+	@media (max-height: 576px) {
+		right: 15px;
 	}
 
-	@media (max-width: 576px) {
+	@media (max-width: 567px) {	// 576px - iPohne 5 horizontal
 		display: none;
 	}
 }
@@ -62,7 +72,7 @@ body {
 #main {
 	position: fixed;
 	top: 0;
-	height: 95vh;
+	height: 100vh;
 	width: 100%;
 
 	display: flex;
@@ -115,6 +125,11 @@ h1 {
 	margin: 20px 15px 0 15px;
 	width: 35px;
 	cursor: not-allowed;
+
+	@media (max-height: 400px) {
+		transform: scale(0.9);
+		margin: 0 100px;
+	}
 }
 
 .can-vote {
@@ -164,16 +179,12 @@ h1 {
 
 	height: 83px;
 
-	@media (max-width: 400px) {
-		height: 67px;
+	@media (max-width: 400px), (max-height: 576px) {
+		height: 55px;
 	}
 
 	&.open {
 		height: auto;
-
-		@media (max-width: 576px) {
-			height: 100vh;
-		}
 	}
 }
 
@@ -185,8 +196,8 @@ h1 {
 	font-size: 1.5em;
 	font-weight: 600;
 
-	@media (max-width: 400px) {
-		font-size: 1.2em;
+	@media (max-width: 400px), (max-height: 576px) {
+		font-size: 1.0em;
 	}
 
 	white-space: nowrap;

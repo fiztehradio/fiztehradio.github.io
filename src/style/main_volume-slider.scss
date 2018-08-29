@@ -33,7 +33,7 @@ $red: rgb(240, 65, 69);
 }
 
 .noUi-horizontal {
-	height: 5px;
+	height: 4px;
 }
 
 .noUi-connects {
@@ -68,7 +68,7 @@ $red: rgb(240, 65, 69);
 
 #volume-minus {
 	float: left;
-	height: 5px;
+	height: 4px;
 	width: 15px;
 	background-color: white;
 	cursor: pointer;
@@ -76,7 +76,7 @@ $red: rgb(240, 65, 69);
 
 #volume-plus {
 	float: left;
-	height: 5px;
+	height: 4px;
 	width: 15px;
 	background-color: white;
 	cursor: pointer;
@@ -85,7 +85,7 @@ $red: rgb(240, 65, 69);
 		content: "";
 		position: absolute;
 		width: 15px;
-		height: 5px;
+		height: 4px;
 		background-color: white;
 		transform: rotate(90deg);
 	}
