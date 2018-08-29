@@ -68,6 +68,7 @@ $hexagonMobileScale: 0.7;
 }
 
 #hexagon:before {
+	left: 0;
 	bottom: 99%; // Если сделать 100, то при scale появляется небольшая дыра
 	border-bottom: $edgeSize/2 solid $backgroundColor;
 }

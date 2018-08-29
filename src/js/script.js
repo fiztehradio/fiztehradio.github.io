@@ -70,11 +70,13 @@ $(function () {
 		{
 			document.getElementById('player').src = "https://phystech.tv/radio/8000/fiztehradio";
 			player.play();
+			yaCounter50134423.reachGoal('PLAY');
 		}
 		else
 		{
 			player.pause();
 			document.getElementById('player').src = "";
+			yaCounter50134423.reachGoal('PAUSE');
 		}
 		button.toggleClass('play pause');
 		$('.button').toggleClass('play pause');
@@ -91,6 +93,7 @@ $(function () {
 				a.html(data);
 			});
 		}
+		yaCounter50134423.reachGoal('JOKE');
 	});
 
 
@@ -125,6 +128,7 @@ $(function () {
 		$('#playlist-arrow').toggleClass('show');
 		$('.playlist-icon-circle').toggleClass('open');
 		$('.playlist-icon-line').toggleClass('open');
+		yaCounter50134423.reachGoal('PLAYLIST');
 	});
 
 	$('#social').click(function() {
@@ -134,6 +138,8 @@ $(function () {
 		$('.social-icon-line').toggleClass('open');
 		$('#playlist-and-social').toggleClass('open');
 		$('.social-share').toggleClass('open');
+		$('#share-container').toggleClass('open');
+		yaCounter50134423.reachGoal('SHARE');
 	});
 
 
@@ -148,14 +154,15 @@ $(function () {
 		$('.vote').removeClass('can-vote');
 
 		lastVotedSongTitle = currentSongTitle;
+		$('#like').toggleClass('voted');
 
 		$.post("https://us-central1-phystechradio.cloudfunctions.net/like-node", function () {
-			$('#like').toggleClass('voted');
 		}).fail(function() {
 			lastVotedSongTitle = "";
 			$('.vote').addClass('can-vote');
 		});
 
+		yaCounter50134423.reachGoal('LIKE');
 	});
 
 	$('#dislike').click(function () {
@@ -169,14 +176,15 @@ $(function () {
 		$('.vote').removeClass('can-vote');
 
 		lastVotedSongTitle = currentSongTitle;
+		$('#dislike').toggleClass('voted');
 
 		$.post("https://us-central1-phystechradio.cloudfunctions.net/dislike-node", function () {
-			$('#dislike').toggleClass('voted');
 		}). fail(function() {
 			lastVotedSongTitle = "";
 			$('.vote').addClass('can-vote');
 		});
 
-	})
+		yaCounter50134423.reachGoal('DISLIKE');
+	});
 
 });

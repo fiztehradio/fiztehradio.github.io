@@ -105,6 +105,21 @@ gulp.task('build-img', function () {
 
 });
 
+gulp.task('build-favicon', function () {
+	gulp.src('src/*.png')
+		.pipe(gulp.dest(path.build.html))
+		.pipe(reload({stream: true}));
+	gulp.src('src/*.svg')
+		.pipe(gulp.dest(path.build.html))
+		.pipe(reload({stream: true}));
+	gulp.src('src/*.ico')
+		.pipe(gulp.dest(path.build.html))
+		.pipe(reload({stream: true}));
+	gulp.src('src/*.webmanifest')
+		.pipe(gulp.dest(path.build.html))
+		.pipe(reload({stream: true}));
+});
+
 gulp.task('watch', function () {
 	gulp.watch([path.watch.html], function (event, cb) {
 		gulp.start('build-html');
@@ -136,7 +151,7 @@ gulp.task('webserver', function () {
 		tunnel: true,
 		host: 'localhost',
 		port: 9001,
-		logPrefix: "radio.mipt.ru"
+		logPrefix: "radiomipt.ru"
 	});
 });
 
@@ -147,7 +162,8 @@ gulp.task('build', [
 	'build-js',
 	'build-php',
 	'build-img',
-	'build-fonts'
+	'build-fonts',
+	'build-favicon'
 ]);
 
 gulp.task('default', ['build', 'webserver', 'watch']);

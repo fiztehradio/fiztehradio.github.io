@@ -49,6 +49,10 @@ body {
 	@media (max-height: 650px) {
 		right: 20px;
 	}
+
+	@media (max-width: 576px) {
+		display: none;
+	}
 }
 
 //
@@ -159,12 +163,17 @@ h1 {
 	transition: height .5s;
 
 	height: 83px;
+
 	@media (max-width: 400px) {
 		height: 67px;
 	}
 
 	&.open {
-		height: 100vh;
+		height: auto;
+
+		@media (max-width: 576px) {
+			height: 100vh;
+		}
 	}
 }
 
@@ -190,11 +199,10 @@ h1 {
 	font-weight: 400;
 	margin: 0;
 	padding: 25px;
-	//height: 100%;
 	vertical-align: middle;
 
 	&.open {
-		transform: translate(0, -50%);
+		transform: translate(0, -25%);
 	}
 }
 

@@ -1,55 +1,15 @@
 $red: rgb(240, 65, 69);
 
-// mixins
-@mixin playlist-width($offset) {
-	width: 280px + $offset;
-
-	@media (min-width: 400px) {
-		width: 350px + $offset;
-	}
-	@media (min-width: 576px) {
-		width: 400px + $offset;
-	}
-	@media (min-width: 768px) {
-		width: 500px + $offset;
-	}
-	@media (min-width: 992px) {
-		width: 550px + $offset;
-	}
-}
-
-#middle-line {
-	//border: white 3px solid;
-}
-
-#playlist-and-social {
-	@include playlist-width(0);
-
-	&.open {
-		@include playlist-width(270px);
-		margin-left: 270px;
-	}
-
-	@media (max-width: 576px) {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 83px;	// Связано с высотой #bottom
-		margin: auto;
-	}
-
-	@media (max-width: 400px) {
-		bottom: 55px;	// Связано с высотой #bottom
-	}
-}
+$whiteCircleSize: 70px;
+$shareButtonMargin: 20px;
 
 .white-circle {
-	width: 70px;
-	height: 70px;
+	width: $whiteCircleSize;
+	height: $whiteCircleSize;
 	background-color: white;
 	border-radius: 50%;
 	cursor: pointer;
-	margin-top: 18px;
+	//margin-top: 18px;
 }
 
 .icon-line, .icon-circle {
@@ -72,7 +32,6 @@ $red: rgb(240, 65, 69);
 }
 
 #playlist, #social {
-
 	&.open {
 		background-color: $red;
 	}
@@ -83,14 +42,47 @@ $red: rgb(240, 65, 69);
 ////////////////////
 
 #playlist {
+	position: relative;
 	float: left;
+
+	//@media (min-width: 576px) {
+	//	top: 108px - $whiteCircleSize/2;
+	//	left: -150px;
+	//}
+	//
+	//@media (max-width: 576px) {
+	//	position: absolute;
+	//	left: $whiteCircleSize/2;
+	//	bottom: 83px;	// Связано с высотой #bottom
+	//}
+
+
+	@media (max-width: 576px) {
+		position: absolute;
+		left: $whiteCircleSize/2;
+		bottom: 83px;	// Связано с высотой #bottom
+	}
+
+	@media (max-width: 400px) {
+		bottom: 67px;	// Связано с высотой #bottom
+	}
+
+	@media (min-width: 577px) {
+		top: 108px - $whiteCircleSize/2;
+		left: -100px;
+	}
+
+	@media (min-width: 768px) {
+		left: -150px;
+	}
+
+	@media (min-width: 1350px) {
+		left: -200px;
+	}
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	&.open {
-		//margin-left: 90px;
-	}
 }
 
 .playlist-icon {
@@ -156,8 +148,6 @@ $red: rgb(240, 65, 69);
 
 	height: 280px;
 	width: 300px;
-	//@include playlist-width;
-	//max-width: 400px;
 
 	position: absolute;
 	margin-left: -100px;
@@ -169,12 +159,19 @@ $red: rgb(240, 65, 69);
 
 	transition: all 0.5s;
 
-
-	@media (max-width: 1140px) {
-		margin-left: 25px;
-		margin-top: 100px;
-		transform: translate(-100%, 0%);
+	@media (max-width: 1250px) {
+		margin-left: -45px;
+		margin-top: 80px;
+		transform: translate(0, 0%);
 	}
+
+	@media (max-width: 576px) {
+		margin-left: -45px;
+		margin-top: -100%;
+		transform: translate(0, -100%);
+	}
+
+
 
 	a {
 		height: 24px;
@@ -200,6 +197,20 @@ $red: rgb(240, 65, 69);
 			background-color: white;
 			color: $red;
 			font-weight: 900;
+
+			&::after {
+				content: "";
+				position: absolute;
+				right: 16px;
+				width: 16px;
+				height: 16px;
+				margin-top: 4px;
+
+				box-sizing: border-box;
+				border-style: solid;
+				border-width: 8px 0 8px 12px;
+				border-color: transparent transparent transparent $red;
+			}
 		}
 	}
 
@@ -229,14 +240,22 @@ $red: rgb(240, 65, 69);
 		display: block;
 	}
 
-
-	@media (max-width: 1140px) {
-		left: 80%;
+	@media (max-width: 1250px) {
+		left: 0;
 		top: -120%;
-		transform: translate(0, 0%);
-		border-width: 0px 28px 28px 28px;
-		border-color: transparent transparent white transparent;
+		transform: translate(0%, 0%);
+		border-width: 0 28px 28px 28px;
+		border-color: transparent transparent $red transparent;
 	}
+
+	@media (max-width: 576px) {
+		top: 0;
+		left: 0;
+		transform: translate(0,0);
+		border-width: 28px 28px 0 28px;
+		border-color: $red transparent transparent transparent;
+	}
+
 }
 
 
@@ -246,15 +265,37 @@ $red: rgb(240, 65, 69);
 //		social
 ////////////////////
 
+
 #social {
+	position: relative;
 	float: right;
+
+	@media (max-width: 576px) {
+		position: absolute;
+		right: $whiteCircleSize/2;
+		bottom: 83px;	// Связано с высотой #bottom
+	}
+
+	@media (max-width: 400px) {
+		bottom: 67px;	// Связано с высотой #bottom
+	}
+
+	@media (min-width: 577px) {
+		top: 108px - $whiteCircleSize/2;
+		left: 100px;
+	}
+
+	@media (min-width: 768px) {
+		left: 150px;
+	}
+
+	@media (min-width: 1350px) {
+		left: 200px;
+	}
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	&.open {
-		//margin-right: 90px;
-	}
 }
 
 .social-icon {
@@ -342,16 +383,42 @@ $red: rgb(240, 65, 69);
 }
 
 .social-share {
-	float: right;
+	position: absolute;
+	bottom: 0;
 
-	margin-left: -70px;
-	&.open {
-		margin-left: 20px;
-	}
+	z-index: -1;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	&.open {
+
+		@media (min-width: 1251px) {
+			&:nth-child(2) {
+				margin-left: ($whiteCircleSize + $shareButtonMargin)*3;
+			}
+			&:nth-child(3) {
+				margin-left: ($whiteCircleSize + $shareButtonMargin)*2;
+			}
+			&:nth-child(4) {
+				margin-left: ($whiteCircleSize + $shareButtonMargin);
+			}
+		}
+
+		@media (max-width: 1250px) {
+			&:nth-child(2) {
+				bottom: ($whiteCircleSize + $shareButtonMargin)*3;
+			}
+			&:nth-child(3) {
+				bottom: ($whiteCircleSize + $shareButtonMargin)*2;
+			}
+			&:nth-child(4) {
+				bottom: ($whiteCircleSize + $shareButtonMargin);
+			}
+		}
+
+	}
 }
 
 #social-facebook svg{
