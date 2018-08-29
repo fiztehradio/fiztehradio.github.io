@@ -28,7 +28,7 @@ function updateSong() {
 		$('#last-track-1').html(hist[0].song.text);
 		$('#last-track-2').html(hist[1].song.text);
 		$('#last-track-3').html(hist[2].song.text);
-		$('#next-track').html(data[0].playing_next.song.text)
+		$('#next-track').html(data[0].playing_next.song.text);
 
 		currentSongTitle = song.text;
 		if (lastVotedSongTitle !== currentSongTitle)
