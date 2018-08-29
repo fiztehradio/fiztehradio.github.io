@@ -553,6 +553,7 @@ h1 {
   background-color: white;
   color: #f04145;
   font-weight: 900;
+  padding-right: 40px;
 }
 
 .dropdown-content a.playlist-current-track::after {
