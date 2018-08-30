@@ -666,10 +666,6 @@ h1 {
   }
 }
 
-.share {
-  z-index: 9999;
-}
-
 @media (max-width:576px) {
   .share {
     bottom: 83px;
