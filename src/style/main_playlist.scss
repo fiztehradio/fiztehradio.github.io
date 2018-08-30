@@ -279,8 +279,6 @@ $shareButtonMargin: 20px;
 
 .share {
 
-	z-index: 9999;
-
 	@media (max-width: 576px) {
 		bottom: 83px;	// Связано с высотой #bottom
 	}
