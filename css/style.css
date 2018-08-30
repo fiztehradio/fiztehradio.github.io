@@ -167,6 +167,13 @@ h1 {
   }
 }
 
+@media (max-width:500px) {
+  .vote {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
 .can-vote {
   cursor: pointer;
 }
@@ -666,18 +673,6 @@ h1 {
   }
 }
 
-@media (max-width:576px) {
-  .share {
-    bottom: 83px;
-  }
-}
-
-@media (max-width:400px) {
-  .share {
-    bottom: 67px;
-  }
-}
-
 @media (min-width:577px) {
   .share {
     top: 73px;
@@ -708,6 +703,21 @@ h1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    bottom: 83px;
+  }
+}
+
+@media (max-width:400px) {
+  #share-mobile {
+    bottom: 67px;
+  }
+}
+
+@media (max-height:400px) {
+  #share-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -722,6 +732,12 @@ h1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+@media (max-height:400px) {
+  #share-desktop {
+    display: none;
   }
 }
 
