@@ -122,17 +122,32 @@ h1 {
 }
 
 .vote {
-	margin: 20px 15px 0 15px;
+	margin-top: 20px;
+	margin-bottom: 0;
 	width: 35px;
 	cursor: not-allowed;
 
 	@media (max-height: 400px) {
 		transform: scale(0.9);
-		margin: 0 100px;
 	}
+}
 
+#like {
+	margin-left: 15px;
+	@media (max-height: 400px) {
+		margin-left: 100px;
+	}
 	@media (max-width: 500px) {
 		margin-left: 50px;
+	}
+}
+
+#dislike {
+	margin-right: 15px;
+	@media (max-height: 400px) {
+		margin-right: 100px;
+	}
+	@media (max-width: 500px) {
 		margin-right: 50px;
 	}
 }

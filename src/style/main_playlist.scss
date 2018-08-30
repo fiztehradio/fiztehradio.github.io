@@ -3,6 +3,33 @@ $red: rgb(240, 65, 69);
 $whiteCircleSize: 70px;
 $shareButtonMargin: 20px;
 
+@mixin playlist-and-share-desktop-horizontal-alignment($right) {
+	left: $right * 50px;
+	@media (min-width: 400px) {
+		left: $right * 50px;
+	}
+	@media (min-width: 577px) {
+		left: $right * 100px;
+	}
+	@media (min-width: 768px) {
+		left: $right * 150px;
+	}
+	@media (min-width: 1350px) {
+		left: $right * 200px;
+	}
+}
+
+@mixin playlist-and-share-desktop-vertical-alignment {
+	top: 108px - $whiteCircleSize/2;
+	@media (max-height: 576px) {
+		top: 35px;
+	}
+	@media (max-height: 400px) {
+		top: -15px;
+	}
+};
+
+
 .white-circle {
 	width: $whiteCircleSize;
 	height: $whiteCircleSize;
@@ -46,28 +73,6 @@ $shareButtonMargin: 20px;
 ////////////////////
 
 .playlist {
-
-	@media (max-width: 576px) {
-		bottom: 83px;	// Связано с высотой #bottom
-	}
-
-	@media (max-width: 400px) {
-		bottom: 67px;	// Связано с высотой #bottom
-	}
-
-	@media (min-width: 577px) {
-		top: 108px - $whiteCircleSize/2;
-		left: -100px;
-	}
-
-	@media (min-width: 768px) {
-		left: -150px;
-	}
-
-	@media (min-width: 1350px) {
-		left: -200px;
-	}
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -80,6 +85,13 @@ $shareButtonMargin: 20px;
 
 	@media (max-width: 576px) {
 		display: flex;
+		bottom: 83px;	// Связано с высотой #bottom
+	}
+	@media (max-width: 400px) {
+		bottom: 67px;	// Связано с высотой #bottom
+	}
+	@media (max-height: 400px) and (max-width: 576px) {
+		display: flex;
 	}
 }
 
@@ -88,9 +100,19 @@ $shareButtonMargin: 20px;
 	float: left;
 	display: none;
 
-	@media (min-width: 576px) {
+	@media (min-width: 577px) {
 		display: flex;
 	}
+	@media (max-height: 400px) and (max-width: 576px) {
+		display: none;
+	}
+
+	//@media (max-height: 400px) and (max-width: 576px) {
+	//	display: none;
+	//}
+
+	@include playlist-and-share-desktop-horizontal-alignment(-1);
+	@include playlist-and-share-desktop-vertical-alignment;
 }
 
 .playlist-icon {
@@ -276,24 +298,9 @@ $shareButtonMargin: 20px;
 
 
 .share {
-
-	@media (max-width: 576px) {
-	}
-
-
-
-	@media (min-width: 577px) {
-		top: 108px - $whiteCircleSize/2;
-		left: 100px;
-	}
-
-	@media (min-width: 768px) {
-		left: 150px;
-	}
-
-	@media (min-width: 1350px) {
-		left: 200px;
-	}
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #share-mobile {
@@ -301,7 +308,6 @@ $shareButtonMargin: 20px;
 	right: 15px;
 	display: none;
 
-	//@media (max-width: 576px) and (max-height: 576px) {
 	@media (max-width: 576px) {
 		display: flex;
 		bottom: 83px;	// Связано с высотой #bottom
@@ -309,7 +315,7 @@ $shareButtonMargin: 20px;
 	@media (max-width: 400px) {
 		bottom: 67px;	// Связано с высотой #bottom
 	}
-	@media (max-height: 400px) {
+	@media (max-height: 400px) and (max-width: 576px) {
 		display: flex;
 	}
 }
@@ -319,13 +325,15 @@ $shareButtonMargin: 20px;
 	float: right;
 	display: none;
 
-	//@media (min-width: 577px), (min-height: 577px) {
-	@media (min-width: 576px) {
+	@media (min-width: 577px) {
 		display: flex;
 	}
-	@media (max-height: 400px) {
+	@media (max-height: 400px) and (max-width: 576px) {
 		display: none;
 	}
+
+	@include playlist-and-share-desktop-horizontal-alignment(1);
+	@include playlist-and-share-desktop-vertical-alignment;
 }
 
 .share-top {
