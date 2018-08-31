@@ -64,7 +64,7 @@ $(function () {
 		"<div class=\"dropdown-content\">\n" +
 		"<a class=\"previous-track last-track-3\"></a>\n" +
 		"<a class=\"previous-track last-track-2\"></a>\n" +
-		"<a class=\"previous-track last-track-2\"></a>\n" +
+		"<a class=\"previous-track last-track-1\"></a>\n" +
 		"<a class=\"current-track\"></a>\n" +
 		"<a class=\"next-track \"></a>\n" +
 		"<div class=\"playlist-arrow\"></div>\n" +
