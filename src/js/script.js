@@ -1,15 +1,26 @@
 function openNav() {
+	$('#nav-icon').addClass('open');
 	$('#sidenav').addClass('open');
-	$('#top').css('marginLeft', '250px');
-	$('#main').css('marginLeft', '250px');
-	$('#bottom').css('marginLeft', '250px');
+	$('#top').css('marginLeft', '-100px');
+	$('#main').css('marginLeft', '-100px');
+	$('#bottom').css('marginLeft', '-100px');
+	$('#logo-text').addClass('open');
 }
 
 function closeNav() {
+	$('#nav-icon').removeClass('open');
 	$('#sidenav').removeClass('open');
 	$('#top').css('marginLeft','0');
 	$('#main').css('marginLeft','0');
 	$('#bottom').css('marginLeft','0');
+	$('#logo-text').removeClass('open');
+}
+
+function toggleNav(o) {
+	if (o.hasClass("open"))
+		closeNav();
+	else
+		openNav();
 }
 
 var updateSongTimer = setTimeout(updateSong, 0);
@@ -100,13 +111,8 @@ $(function () {
 		"</div>");
 
 
-	$('#nav-icon').click(function () {
-		$(this).toggleClass('open');
-		if ($(this).hasClass("open"))
-			openNav();
-		else
-			closeNav();
-	});
+	$('#logo-text').click(function() {toggleNav($(this))});
+	$('#nav-icon').click(function() {toggleNav($(this))});
 
 	var player = document.getElementById('player');
 

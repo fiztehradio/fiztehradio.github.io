@@ -55,13 +55,16 @@ body {
 }
 
 #logo-text {
-	right: 40px;
+	right: 60px;
+	cursor: pointer;
 	@media (max-height: 576px) {
 		right: 15px;
 	}
-
 	@media (max-width: 567px) {	// 576px - iPohne 5 horizontal
 		display: none;
+	}
+	&.open {
+		right: 140px;
 	}
 }
 
@@ -195,7 +198,7 @@ h1 {
 	background-color: $red;
 	cursor: pointer;
 
-	transition: height .5s;
+	//transition: height .5s;
 
 	height: 83px;
 
