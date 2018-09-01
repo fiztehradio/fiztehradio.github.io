@@ -49,9 +49,11 @@ body {
 
 #logo-image {
 	left: 40px;
-	@media (max-height: 576px) {
+	@media (max-height: 650px) {
 		left: 15px;
 	}
+
+
 }
 
 #logo-text {

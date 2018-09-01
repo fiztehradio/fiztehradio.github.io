@@ -83,15 +83,16 @@ $shareButtonMargin: 20px;
 	left: 15px;
 	display: none;
 
+	bottom: 100px;	// Связано с высотой #bottom
+
 	@media (max-width: 576px) {
 		display: flex;
-		bottom: 83px;	// Связано с высотой #bottom
-	}
-	@media (max-width: 400px) {
-		bottom: 67px;	// Связано с высотой #bottom
 	}
 	@media (max-height: 400px) and (max-width: 576px) {
 		display: flex;
+	}
+	@media (max-width: 400px), (max-height: 576px) {
+		bottom: 67px;	// Связано с высотой #bottom
 	}
 }
 
@@ -106,10 +107,6 @@ $shareButtonMargin: 20px;
 	@media (max-height: 400px) and (max-width: 576px) {
 		display: none;
 	}
-
-	//@media (max-height: 400px) and (max-width: 576px) {
-	//	display: none;
-	//}
 
 	@include playlist-and-share-desktop-horizontal-alignment(-1);
 	@include playlist-and-share-desktop-vertical-alignment;
@@ -195,7 +192,7 @@ $shareButtonMargin: 20px;
 		transform: translate(0, 0%);
 	}
 
-	@media (max-width: 576px) {
+	@media (max-width: 576px), (max-height: 1000px) {
 		margin-left: -45px;
 		margin-top: -100%;
 		transform: translate(0, -100%);
@@ -279,7 +276,7 @@ $shareButtonMargin: 20px;
 		border-color: transparent transparent $red transparent;
 	}
 
-	@media (max-width: 576px) {
+	@media (max-width: 576px), (max-height: 1000px) {
 		top: 0;
 		left: 0;
 		transform: translate(0,0);
@@ -307,16 +304,16 @@ $shareButtonMargin: 20px;
 	position: fixed;
 	right: 15px;
 	display: none;
+	bottom: 100px;	// Связано с высотой #bottom
 
 	@media (max-width: 576px) {
 		display: flex;
-		bottom: 83px;	// Связано с высотой #bottom
-	}
-	@media (max-width: 400px) {
-		bottom: 67px;	// Связано с высотой #bottom
 	}
 	@media (max-height: 400px) and (max-width: 576px) {
 		display: flex;
+	}
+	@media (max-width: 400px), (max-height: 576px) {
+		bottom: 67px;	// Связано с высотой #bottom
 	}
 }
 

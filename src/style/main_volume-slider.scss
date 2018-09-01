@@ -22,10 +22,22 @@ $red: rgb(240, 65, 69);
 }
 
 #volume-slider {
-	width: 150px;
+	$width: 152px;
+	width: $width;
 	float: left;
 	margin-left: 15px;
 	margin-right: 15px;
+
+	@media (max-width: 576px) {
+		width: $width * 0.7;
+	}
+	@media (max-height: 576px) {
+		width: $width * 0.7;
+	}
+
+	@media (max-height: 400px) {
+		width: $width * 0.7 * 0.7;
+	}
 }
 
 .noUi-target {
