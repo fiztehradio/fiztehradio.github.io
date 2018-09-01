@@ -58,7 +58,7 @@ body {
   left: 40px;
 }
 
-@media (max-height:576px) {
+@media (max-height:650px) {
   #logo-image {
     left: 15px;
   }
@@ -531,6 +531,7 @@ h1 {
   position: fixed;
   left: 15px;
   display: none;
+  bottom: 100px;
 }
 
 @media (max-width:576px) {
@@ -538,13 +539,6 @@ h1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    bottom: 83px;
-  }
-}
-
-@media (max-width:400px) {
-  #playlist-mobile {
-    bottom: 67px;
   }
 }
 
@@ -553,6 +547,12 @@ h1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+@media (max-width:400px),(max-height:576px) {
+  #playlist-mobile {
+    bottom: 67px;
   }
 }
 
@@ -697,7 +697,7 @@ h1 {
   }
 }
 
-@media (max-width:576px) {
+@media (max-width:576px),(max-height:1000px) {
   .dropdown-content {
     margin-left: -45px;
     margin-top: -100%;
@@ -782,7 +782,7 @@ h1 {
   }
 }
 
-@media (max-width:576px) {
+@media (max-width:576px),(max-height:1000px) {
   .playlist-arrow {
     top: 0;
     left: 0;
@@ -809,6 +809,7 @@ h1 {
   position: fixed;
   right: 15px;
   display: none;
+  bottom: 100px;
 }
 
 @media (max-width:576px) {
@@ -816,13 +817,6 @@ h1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    bottom: 83px;
-  }
-}
-
-@media (max-width:400px) {
-  #share-mobile {
-    bottom: 67px;
   }
 }
 
@@ -831,6 +825,12 @@ h1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+@media (max-width:400px),(max-height:576px) {
+  #share-mobile {
+    bottom: 67px;
   }
 }
 
@@ -1061,10 +1061,28 @@ h1 {
 }
 
 #volume-slider {
-  width: 150px;
+  width: 152px;
   float: left;
   margin-left: 15px;
   margin-right: 15px;
+}
+
+@media (max-width:576px) {
+  #volume-slider {
+    width: 106.4px;
+  }
+}
+
+@media (max-height:576px) {
+  #volume-slider {
+    width: 106.4px;
+  }
+}
+
+@media (max-height:400px) {
+  #volume-slider {
+    width: 74.48px;
+  }
 }
 
 .noUi-target {
