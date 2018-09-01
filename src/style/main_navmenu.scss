@@ -8,9 +8,9 @@ $backgroundColor: #111;
 	height: 100%;
 	width: 50px;
 	position: fixed;
-	z-index: 1;
+	z-index: -1;
 	top: 0;
-	right: -50px;
+	right: -0px;
 	background-color: $backgroundColor;
 	overflow-x: hidden;
 	padding-top: 60px;
@@ -87,14 +87,20 @@ $backgroundColor: #111;
 	height: 60px;
 	margin: 40px auto;
 	transform: rotate(0deg);
-	transition: .5s ease-in-out;
+	//transition: .5s ease-in-out;
 	cursor: pointer;
+
 
 
 	@media (max-width: 400px) {
 		width: 25px;
 		height: 29px;
 		margin: 16px auto;
+	}
+	@media (max-height: 650px) {
+		width: 40px;
+		height: 40px;
+		margin: 20px auto;
 	}
 
 	span {
@@ -103,12 +109,13 @@ $backgroundColor: #111;
 		width: 12px;
 		height: 12px;
 		right: 0;
-		//width: 100%;
 		background: white;
 		opacity: 1;
-		//left: 0;
 		transform: rotate(0deg);
 		transition: .25s ease-in-out;
+
+
+		//transition: all 3s;
 
 		&:nth-child(1) {
 			top: 0;
@@ -122,21 +129,32 @@ $backgroundColor: #111;
 			top: 38px;
 		}
 
+		@media (max-height: 650px) {
+			width: 10px;
+			height: 10px;
+			&:nth-child(2), &:nth-child(3) {
+				top: 15px;
+			}
+			&:nth-child(4) {
+				top: 30px;
+			}
+		}
 
 		@media (max-height: 576px), (max-width: 567px) {
 			height: 10px;
 		}
 
+
 	}
 
 	&.open {
+		right: 30px;
 
 		span {
 			background: white;
 			&:nth-child(1) {
 				top: 18px;
 				width: 0;
-				left: 50%;
 			}
 
 			&:nth-child(2) {
@@ -154,7 +172,6 @@ $backgroundColor: #111;
 			&:nth-child(4) {
 				top: 18px;
 				width: 0;
-				left: 50%;
 			}
 		}
 	}

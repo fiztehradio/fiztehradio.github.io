@@ -1,18 +1,22 @@
 function openNav() {
 	$('#nav-icon').addClass('open');
 	$('#sidenav').addClass('open');
-	$('#top').css('marginLeft', '-100px');
-	$('#main').css('marginLeft', '-100px');
-	$('#bottom').css('marginLeft', '-100px');
+	$('#top').css('margin-left', '-100px');
+	$('#main').css('margin-left', '-100px');
+	$('#bottom').css('margin-left', '-100px');
+	$('#playlist-mobile').css('margin-left', '-100px');
+	$('#share-mobile').css('margin-right', '100px');
 	$('#logo-text').addClass('open');
 }
 
 function closeNav() {
 	$('#nav-icon').removeClass('open');
 	$('#sidenav').removeClass('open');
-	$('#top').css('marginLeft','0');
-	$('#main').css('marginLeft','0');
-	$('#bottom').css('marginLeft','0');
+	$('#top').css('margin-left','0');
+	$('#main').css('margin-left','0');
+	$('#bottom').css('margin-left','0');
+	$('#playlist-mobile').css('margin-left', '0');
+	$('#share-mobile').css('margin-right', '0');
 	$('#logo-text').removeClass('open');
 }
 

@@ -57,15 +57,19 @@ body {
 #logo-text {
 	right: 60px;
 	cursor: pointer;
+	&.open {
+		right: 140px;
+	}
 	@media (max-height: 576px) {
-		right: 15px;
+		right: 45px;
+		&.open {
+			right: 125px;
+		}
 	}
 	@media (max-width: 567px) {	// 576px - iPohne 5 horizontal
 		display: none;
 	}
-	&.open {
-		right: 140px;
-	}
+
 }
 
 //
