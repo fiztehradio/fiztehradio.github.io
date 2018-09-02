@@ -208,7 +208,7 @@ h1 {
 
 	height: 83px;
 
-	@media (max-width: 400px), (max-height: 576px) {
+	@media (max-width: 450px), (max-height: 576px) {
 		height: 55px;
 	}
 
@@ -221,11 +221,43 @@ h1 {
 	color: white;
 }
 
+#bottom-header-container {
+	margin: auto;
+	width: 450px;
+
+	@media (max-width: 450px), (max-height: 576px) {
+		width: 310px;
+	}
+
+}
+
+#bottom-image {
+	float: left;
+	height: 43px;
+	width: 43px;
+	margin: 20px;
+
+	//background-color: blue;
+
+	@media (max-width: 450px), (max-height: 576px) {
+		height: 23px;
+		width: 23px;
+		margin: 16px;
+	}
+
+	background-image: url('../img/phystech-joke.png');
+	//background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
 #bottom-header {
+	float: left;
 	font-size: 1.5em;
 	font-weight: 600;
+	padding: 0;
 
-	@media (max-width: 400px), (max-height: 576px) {
+	@media (max-width: 450px), (max-height: 576px) {
 		font-size: 1.0em;
 	}
 
@@ -233,6 +265,7 @@ h1 {
 }
 
 #bottom-text {
+	clear:both;
 	position: relative;
 	top: 45%;
 
