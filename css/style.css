@@ -1072,6 +1072,16 @@ h1 {
   }
 }
 
+@media (max-width:576px),(max-height:576px) {
+  .share-social.open:nth-child(1) {
+    bottom: 140px;
+  }
+
+  .share-social.open:nth-child(2) {
+    bottom: 70px;
+  }
+}
+
 .share-facebook svg {
   height: 40px;
 }
