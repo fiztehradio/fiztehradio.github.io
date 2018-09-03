@@ -2,6 +2,7 @@ $red: rgb(240, 65, 69);
 
 $whiteCircleSize: 70px;
 $shareButtonMargin: 20px;
+$shareButtonMargin_small: 0px;
 
 @mixin playlist-and-share-desktop-horizontal-alignment($right) {
 	left: $right * 50px;
@@ -291,7 +292,7 @@ $shareButtonMargin: 20px;
 	}
 
 	@media (max-width: 1250px) and (max-height: 700px)  {
-		left: 0%;
+		left: 0;
 		top: -30%;
 		transform: translate(-100%, -50%);
 		border-width: 28px 28px 28px 0;
@@ -466,9 +467,18 @@ $shareButtonMargin: 20px;
 			}
 			&:nth-child(2) {
 				bottom: ($whiteCircleSize + $shareButtonMargin)*1;
-			//}
+			}
 			//&:nth-child(3) {
 			//	bottom: ($whiteCircleSize + $shareButtonMargin);
+			//}
+		}
+		
+		@media (max-width: 576px), (max-height: 576px) {
+			&:nth-child(1) {
+				bottom: ($whiteCircleSize + $shareButtonMargin_small)*2;
+			}
+			&:nth-child(2) {
+				bottom: ($whiteCircleSize + $shareButtonMargin_small)*1;
 			}
 		}
 
