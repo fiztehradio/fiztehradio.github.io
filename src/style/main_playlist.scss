@@ -187,25 +187,29 @@ $shareButtonMargin_small: 0px;
 
 	transition: all 0.5s;
 
-	@media (max-width: 1250px) {
+	@media (max-width: 1300px) {
 		margin-left: -45px;
 		margin-top: 80px;
 		transform: translate(0, 0%);
 	}
 
-	@media (max-width: 576px), (max-height: 1000px) {
+	@media (max-width: 1300px) and (max-height: 900px) {
 		margin-left: -45px;
 		margin-top: -100%;
 		transform: translate(0, -100%);
 	}
 
-	@media (max-width: 1250px) and (max-height: 700px)  {
+	@media (max-width: 1300px) and (max-height: 600px)  {
 		margin-left: -100px;
 		margin-top: 0;
 		transform: translate(170px, -164px);
 	}
 
-
+	@media (max-width: 576px) {
+		margin-left: -45px;
+		margin-top: -100%;
+		transform: translate(0, -100%);
+	}
 
 	a {
 		height: 24px;
@@ -284,15 +288,15 @@ $shareButtonMargin_small: 0px;
 		display: block;
 	}
 
-	@media (max-width: 1250px) {
+	@media (max-width: 1300px) {
 		left: 0;
-		top: -120%;
-		transform: translate(0%, 0%);
+		top: -248px;
+		transform: translate(0%, -100%);
 		border-width: 0 28px 28px 28px;
 		border-color: transparent transparent $red transparent;
 	}
 
-	@media (max-width: 576px), (max-height: 1000px) {
+	@media (max-width: 1300px) and (max-height: 900px) {
 		top: 0;
 		left: 0;
 		transform: translate(0,0);
@@ -300,12 +304,20 @@ $shareButtonMargin_small: 0px;
 		border-color: $red transparent transparent transparent;
 	}
 
-	@media (max-width: 1250px) and (max-height: 700px)  {
+	@media (max-width: 1300px) and (max-height: 600px)  {
 		left: 0;
 		top: -56px;
 		transform: translate(-100%, -100%);
 		border-width: 28px 28px 28px 0;
 		border-color: transparent white transparent transparent;
+	}
+
+	@media (max-width: 576px) {
+		top: 0;
+		left: 0;
+		transform: translate(0,0);
+		border-width: 28px 28px 0 28px;
+		border-color: $red transparent transparent transparent;
 	}
 }
 
