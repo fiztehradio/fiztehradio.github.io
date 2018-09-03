@@ -720,7 +720,7 @@ h1 {
   transition: all .5s;
 }
 
-@media (max-width:1250px) {
+@media (max-width:1300px) {
   .dropdown-content {
     margin-left: -45px;
     margin-top: 80px;
@@ -729,7 +729,7 @@ h1 {
   }
 }
 
-@media (max-width:576px),(max-height:1000px) {
+@media (max-width:1300px) and (max-height:900px) {
   .dropdown-content {
     margin-left: -45px;
     margin-top: -100%;
@@ -738,12 +738,21 @@ h1 {
   }
 }
 
-@media (max-width:1250px) and (max-height:700px) {
+@media (max-width:1300px) and (max-height:600px) {
   .dropdown-content {
     margin-left: -100px;
     margin-top: 0;
     -webkit-transform: translate(170px,-164px);
     transform: translate(170px,-164px);
+  }
+}
+
+@media (max-width:576px) {
+  .dropdown-content {
+    margin-left: -45px;
+    margin-top: -100%;
+    -webkit-transform: translate(0,-100%);
+    transform: translate(0,-100%);
   }
 }
 
@@ -821,18 +830,18 @@ h1 {
   display: block;
 }
 
-@media (max-width:1250px) {
+@media (max-width:1300px) {
   .playlist-arrow {
     left: 0;
-    top: -120%;
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
+    top: -248px;
+    -webkit-transform: translate(0,-100%);
+    transform: translate(0,-100%);
     border-width: 0 28px 28px 28px;
     border-color: transparent transparent #f04145 transparent;
   }
 }
 
-@media (max-width:576px),(max-height:1000px) {
+@media (max-width:1300px) and (max-height:900px) {
   .playlist-arrow {
     top: 0;
     left: 0;
@@ -843,7 +852,7 @@ h1 {
   }
 }
 
-@media (max-width:1250px) and (max-height:700px) {
+@media (max-width:1300px) and (max-height:600px) {
   .playlist-arrow {
     left: 0;
     top: -56px;
@@ -851,6 +860,17 @@ h1 {
     transform: translate(-100%,-100%);
     border-width: 28px 28px 28px 0;
     border-color: transparent white transparent transparent;
+  }
+}
+
+@media (max-width:576px) {
+  .playlist-arrow {
+    top: 0;
+    left: 0;
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+    border-width: 28px 28px 0 28px;
+    border-color: #f04145 transparent transparent transparent;
   }
 }
 
