@@ -205,15 +205,21 @@ h1 {
 	cursor: pointer;
 
 	//transition: height .5s;
-
-	height: 83px;
+	//height: 83px;
+	height: auto;
 
 	@media (max-width: 450px), (max-height: 576px) {
 		height: 55px;
 	}
 
+	//transition: none;
+	//transition: max-height 2s ease;
+
+	//max-height: 83px;
+
 	&.open {
-		height: auto;
+		//max-height: 10vh;
+		//height: auto;
 	}
 }
 
@@ -274,8 +280,21 @@ h1 {
 	padding: 25px;
 	vertical-align: middle;
 
-	&.open {
-		transform: translate(0, -25%);
+	$t: .25s;
+
+	transition: opacity $t $t,
+				font-size $t,
+				padding $t;
+
+	&:not(.open) {
+		//transform: translate(0, -25%);
+		font-size: 0;
+		padding: 0;
+		opacity: 0;
+
+		transition: opacity $t,
+					font-size $t $t,
+					padding $t $t;
 	}
 }
 

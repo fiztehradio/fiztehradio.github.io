@@ -172,7 +172,7 @@ $shareButtonMargin_small: 0px;
 
 
 .dropdown-content {
-	display: none;
+	display: block;
 
 	height: 248px;
 	width: 300px;
@@ -185,7 +185,13 @@ $shareButtonMargin_small: 0px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 	z-index: 2;
 
-	transition: all 0.5s;
+	//transition: all 0.5s;
+
+	opacity: 0;
+
+	&.show {
+		opacity: 1;
+	}
 
 	@media (max-width: 1300px) {
 		margin-left: -45px;
@@ -261,10 +267,6 @@ $shareButtonMargin_small: 0px;
 			}
 		}
 	}
-
-	&.show {
-		display: block;
-	}
 }
 
 .playlist-arrow {
@@ -273,7 +275,7 @@ $shareButtonMargin_small: 0px;
 	top: -56px;
 	width: 56px;
 	height: 56px;
-	display: none;
+	display: block;
 	//position: absolute;
 
 	//background-color: white;
@@ -283,10 +285,6 @@ $shareButtonMargin_small: 0px;
 	border-style: solid;
 	border-width: 28px 0 28px 28px;
 	border-color: transparent transparent transparent white;
-
-	&.show {
-		display: block;
-	}
 
 	@media (max-width: 1300px) {
 		left: 0;

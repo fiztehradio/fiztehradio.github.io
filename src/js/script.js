@@ -31,29 +31,53 @@ var updateSongTimer = setTimeout(updateSong, 0);
 var lastVotedSongTitle;
 var currentSongTitle;
 
+// $(function() {
+//
+//     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+//     var analyser = audioCtx.createAnalyser();
+//
+//     source = audioCtx.createMediaStreamSource(stream);
+//     source.connect(analyser);
+//     analyser.connect(distortion);
+//     distortion.connect(audioCtx.destination);
+//
+//     var canvas = document.getElementById('tutorial');
+//     var ctx = canvas.getContext('2d');
+//
+// });
+
 function updateSong() {
 	$.get("https://phystech.tv/api/nowplaying", function(data) {
-		var song = data[0].now_playing.song;
-		$('#song-artist').html(song.artist);
-		$('#song-title').html(song.title);
-		updateSongTimer = setTimeout(updateSong, 5000);
 
-		var hist = data[0].song_history;
-		$('.current-track').html(song.text);
-		$('.last-track-1').html(hist[0].song.text);
-		$('.last-track-2').html(hist[1].song.text);
-		$('.last-track-3').html(hist[2].song.text);
-		$('.next-track').html(data[0].playing_next.song.text);
-
-		// player.title = "Физтех.Радио: " + song.text;	// Записывается только один и не обновляется при смене трекаю
-
-		currentSongTitle = song.text;
-		if (lastVotedSongTitle !== currentSongTitle)
+		if (data[0].live.is_live)
 		{
-			$('#like').removeClass('voted');
-			$('#dislike').removeClass('voted');
-			$('.vote').addClass('can-vote');
+			$('#song-artist').html("Физтех.Радио");
+            $('#song-title').html(data[0].streamer_name);
 		}
+		else
+		{
+            var song = data[0].now_playing.song;
+			$('#song-artist').html(song.artist);
+			$('#song-title').html(song.title);
+			updateSongTimer = setTimeout(updateSong, 5000);
+
+            var hist = data[0].song_history;
+			$('.current-track').html(song.text);
+			$('.last-track-1').html(hist[0].song.text);
+			$('.last-track-2').html(hist[1].song.text);
+			$('.last-track-3').html(hist[2].song.text);
+			$('.next-track').html(data[0].playing_next.song.text);
+
+			// player.title = "Физтех.Радио: " + song.text;	// Записывается только один раз и не обновляется при смене трекаю
+
+			currentSongTitle = song.text;
+			if (lastVotedSongTitle !== currentSongTitle)
+			{
+				$('#like').removeClass('voted');
+				$('#dislike').removeClass('voted');
+				$('.vote').addClass('can-vote');
+			}
+        }
 	});
 }
 
