@@ -204,22 +204,10 @@ h1 {
 	background-color: $red;
 	cursor: pointer;
 
-	//transition: height .5s;
-	//height: 83px;
 	height: auto;
 
-	@media (max-width: 450px), (max-height: 576px) {
-		height: 55px;
-	}
-
-	//transition: none;
-	//transition: max-height 2s ease;
-
-	//max-height: 83px;
-
-	&.open {
-		//max-height: 10vh;
-		//height: auto;
+	a {
+		color: white;
 	}
 }
 
@@ -234,7 +222,6 @@ h1 {
 	@media (max-width: 450px), (max-height: 576px) {
 		width: 310px;
 	}
-
 }
 
 #bottom-image {
@@ -263,6 +250,9 @@ h1 {
 	font-weight: 600;
 	padding: 0;
 
+	width: 100%;
+
+
 	@media (max-width: 450px), (max-height: 576px) {
 		font-size: 1.0em;
 	}
@@ -271,13 +261,14 @@ h1 {
 }
 
 #bottom-text {
+
 	clear:both;
 	position: relative;
 	top: 45%;
 
 	font-weight: 400;
 	margin: 0;
-	padding: 25px;
+	padding: 10px 25px 25px 25px;
 	vertical-align: middle;
 
 	$t: .25s;
@@ -286,7 +277,13 @@ h1 {
 				font-size $t,
 				padding $t;
 
-	&:not(.open) {
+	a {
+		transition: opacity $t $t,
+		font-size $t,
+		padding $t;
+	}
+
+	&:not(.open), *:not(.open) {
 		//transform: translate(0, -25%);
 		font-size: 0;
 		padding: 0;

@@ -6,7 +6,7 @@ $shareButtonMargin_small: 0px;
 
 @mixin playlist-and-share-desktop-horizontal-alignment($right) {
 	left: $right * 50px;
-	@media (min-width: 400px) {
+	@media (min-width: 450px) {
 		left: $right * 50px;
 	}
 	@media (min-width: 577px) {
@@ -25,7 +25,7 @@ $shareButtonMargin_small: 0px;
 	@media (max-height: 576px) {
 		top: 35px;
 	}
-	@media (max-height: 400px) {
+	@media (max-height: 450px) {
 		top: -15px;
 	}
 };
@@ -89,10 +89,10 @@ $shareButtonMargin_small: 0px;
 	@media (max-width: 576px) {
 		display: flex;
 	}
-	@media (max-height: 400px) and (max-width: 576px) {
+	@media (max-height: 450px) and (max-width: 576px) {
 		display: flex;
 	}
-	@media (max-width: 400px), (max-height: 576px) {
+	@media (max-width: 450px), (max-height: 576px) {
 		bottom: 67px;	// Связано с высотой #bottom
 	}
 }
@@ -105,7 +105,7 @@ $shareButtonMargin_small: 0px;
 	@media (min-width: 577px) {
 		display: flex;
 	}
-	@media (max-height: 400px) and (max-width: 576px) {
+	@media (max-height: 450px) and (max-width: 576px) {
 		display: none;
 	}
 
@@ -342,10 +342,10 @@ $shareButtonMargin_small: 0px;
 	@media (max-width: 576px) {
 		display: flex;
 	}
-	@media (max-height: 400px) and (max-width: 576px) {
+	@media (max-height: 450px) and (max-width: 576px) {
 		display: flex;
 	}
-	@media (max-width: 400px), (max-height: 576px) {
+	@media (max-width: 450px), (max-height: 576px) {
 		bottom: 67px;	// Связано с высотой #bottom
 	}
 }
@@ -358,7 +358,7 @@ $shareButtonMargin_small: 0px;
 	@media (min-width: 577px) {
 		display: flex;
 	}
-	@media (max-height: 400px) and (max-width: 576px) {
+	@media (max-height: 450px) and (max-width: 576px) {
 		display: none;
 	}
 
