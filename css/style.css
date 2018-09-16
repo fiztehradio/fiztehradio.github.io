@@ -248,10 +248,8 @@ h1 {
   height: auto;
 }
 
-@media (max-width:450px),(max-height:576px) {
-  #bottom {
-    height: 55px;
-  }
+#bottom a {
+  color: white;
 }
 
 #bottom-header,
@@ -293,6 +291,7 @@ h1 {
   font-size: 1.5em;
   font-weight: 600;
   padding: 0;
+  width: 100%;
   white-space: nowrap;
 }
 
@@ -308,13 +307,19 @@ h1 {
   top: 45%;
   font-weight: 400;
   margin: 0;
-  padding: 25px;
+  padding: 10px 25px 25px 25px;
   vertical-align: middle;
   -webkit-transition: opacity .25s .25s,font-size .25s,padding .25s;
   transition: opacity .25s .25s,font-size .25s,padding .25s;
 }
 
-#bottom-text:not(.open) {
+#bottom-text a {
+  -webkit-transition: opacity .25s .25s,font-size .25s,padding .25s;
+  transition: opacity .25s .25s,font-size .25s,padding .25s;
+}
+
+#bottom-text:not(.open),
+#bottom-text *:not(.open) {
   font-size: 0;
   padding: 0;
   opacity: 0;
@@ -575,7 +580,7 @@ h1 {
   }
 }
 
-@media (max-height:400px) and (max-width:576px) {
+@media (max-height:450px) and (max-width:576px) {
   #playlist-mobile {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -583,7 +588,7 @@ h1 {
   }
 }
 
-@media (max-width:400px),(max-height:576px) {
+@media (max-width:450px),(max-height:576px) {
   #playlist-mobile {
     bottom: 67px;
   }
@@ -605,13 +610,13 @@ h1 {
   }
 }
 
-@media (max-height:400px) and (max-width:576px) {
+@media (max-height:450px) and (max-width:576px) {
   #playlist-desktop {
     display: none;
   }
 }
 
-@media (min-width:400px) {
+@media (min-width:450px) {
   #playlist-desktop {
     left: -50px;
   }
@@ -641,7 +646,7 @@ h1 {
   }
 }
 
-@media (max-height:400px) {
+@media (max-height:450px) {
   #playlist-desktop {
     top: -15px;
   }
@@ -897,7 +902,7 @@ h1 {
   }
 }
 
-@media (max-height:400px) and (max-width:576px) {
+@media (max-height:450px) and (max-width:576px) {
   #share-mobile {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -905,7 +910,7 @@ h1 {
   }
 }
 
-@media (max-width:400px),(max-height:576px) {
+@media (max-width:450px),(max-height:576px) {
   #share-mobile {
     bottom: 67px;
   }
@@ -927,13 +932,13 @@ h1 {
   }
 }
 
-@media (max-height:400px) and (max-width:576px) {
+@media (max-height:450px) and (max-width:576px) {
   #share-desktop {
     display: none;
   }
 }
 
-@media (min-width:400px) {
+@media (min-width:450px) {
   #share-desktop {
     left: 50px;
   }
@@ -963,7 +968,7 @@ h1 {
   }
 }
 
-@media (max-height:400px) {
+@media (max-height:450px) {
   #share-desktop {
     top: -15px;
   }
