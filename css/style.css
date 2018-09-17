@@ -712,6 +712,7 @@ h1 {
 
 .dropdown-content {
   display: block;
+  pointer-events: none;
   height: 248px;
   width: 300px;
   position: absolute;
