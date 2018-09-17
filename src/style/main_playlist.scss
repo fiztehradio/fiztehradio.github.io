@@ -173,6 +173,7 @@ $shareButtonMargin_small: 0px;
 
 .dropdown-content {
 	display: block;
+	pointer-events: none;
 
 	height: 248px;
 	width: 300px;
