@@ -21,6 +21,16 @@ body {
 	//background-position: center center;
 }
 
+.inactive {
+	display: none;
+}
+
+//.not-active {
+//	cursor: default;
+//	text-decoration: none;
+//	color: black;
+//}
+
 #top {
 	position: fixed;
 	top: 0;
@@ -251,7 +261,6 @@ h1 {
 	padding: 0;
 
 	width: 100%;
-
 
 	@media (max-width: 450px), (max-height: 576px) {
 		font-size: 1.0em;

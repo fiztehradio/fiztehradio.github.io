@@ -31,6 +31,8 @@ var updateSongTimer = setTimeout(updateSong, 0);
 var lastVotedSongTitle;
 var currentSongTitle;
 
+var live = false;
+
 // $(function() {
 //
 //     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -50,10 +52,20 @@ function updateSong() {
     $.get("https://phystech.tv/api/nowplaying", function (data) {
 
         if (data[0].live.is_live) {
+            live = true;
             $('#song-artist').html("Физтех.Радио");
             $('#song-title').html(data[0].live.streamer_name);
+
+            $('.playlist-icon-circle').addClass('inactive');
+            $('.playlist-icon-line').addClass('inactive');
+            $('.playlist-icon svg').removeClass('inactive');
+            $('#chat-link').attr('href', 'https://radiomipt.ru/chat');
         }
         else {
+            live = false;
+            $('#chat-link').href = '';
+
+
             var song = data[0].now_playing.song;
             $('#song-artist').html(song.artist);
             $('#song-title').html(song.title);
@@ -89,13 +101,22 @@ var bottomClickCounter = 0;
 
 $(function () {
 
-    $(".playlist").html("\t\t\t<div class=\"playlist-icon\">\n" +
-        "<div class=\"icon-circle playlist-icon-circle\"></div>\n" +
-        "<div class=\"icon-line playlist-icon-line\"></div>\n" +
-        "<div class=\"icon-circle playlist-icon-circle\"></div>\n" +
-        "<div class=\"icon-line playlist-icon-line\"></div>\n" +
-        "<div class=\"icon-circle playlist-icon-circle\"></div>\n" +
-        "<div class=\"icon-line playlist-icon-line\"></div>\n" +
+    $(".playlist").html(
+        "<div class=\"playlist-icon\">\n" +
+
+            "<div class=\"icon-circle playlist-icon-circle\"></div>\n" +
+            "<div class=\"icon-line playlist-icon-line\"></div>\n" +
+            "<div class=\"icon-circle playlist-icon-circle\"></div>\n" +
+            "<div class=\"icon-line playlist-icon-line\"></div>\n" +
+            "<div class=\"icon-circle playlist-icon-circle\"></div>\n" +
+            "<div class=\"icon-line playlist-icon-line\"></div>\n" +
+
+            "<svg class=\"inactive\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 26 26\" version=\"1.1\" width=\"26px\" height=\"26px\">\n" +
+            "<g id=\"surface1\">\n" +
+            "<path style=\" \" d=\"M 13 0.1875 C 5.925781 0.1875 0.1875 5.253906 0.1875 11.5 C 0.1875 14.675781 1.675781 17.539063 4.0625 19.59375 C 3.542969 22.601563 0.175781 23.828125 0.40625 24.65625 C 3.414063 25.902344 9.378906 23.011719 10.28125 22.5625 C 11.15625 22.730469 12.070313 22.8125 13 22.8125 C 20.074219 22.8125 25.8125 17.746094 25.8125 11.5 C 25.8125 5.253906 20.074219 0.1875 13 0.1875 Z \"/>\n" +
+            "</g>\n" +
+            "</svg>\n" +
+
         "</div>\n" +
         "<div class=\"dropdown\">\n" +
         "<div class=\"dropdown-content\">\n" +
@@ -108,7 +129,8 @@ $(function () {
         "</div>\n" +
         "</div>");
 
-    $(".share").html("<!--<a class=\"share-twitter share-social white-circle\">-->\n" +
+    $(".share").html(
+        "<!--<a class=\"share-twitter share-social white-circle\">-->\n" +
         "<!--<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 33.84 27.49\"><title>Twitter</title>-->\n" +
         "<!--<path d=\"M33.84,3.25a14,14,0,0,1-4,1.1,7,7,0,0,0,3-3.84,14,14,0,0,1-4.42,1.68,6.94,6.94,0,0,0-12,4.75,7.43,7.43,0,0,0,.18,1.58A19.7,19.7,0,0,1,2.36,1.27,6.92,6.92,0,0,0,4.5,10.53a7,7,0,0,1-3.14-.86v.08a7,7,0,0,0,5.57,6.82,7.34,7.34,0,0,1-1.83.23,7.17,7.17,0,0,1-1.31-.12,7,7,0,0,0,6.49,4.82,14,14,0,0,1-8.63,3A15.07,15.07,0,0,1,0,24.37a19.59,19.59,0,0,0,10.65,3.12c12.76,0,19.74-10.57,19.74-19.74l0-.9a13.81,13.81,0,0,0,3.47-3.6Z\"-->\n" +
         "<!--fill=\"#ef4145\"/>-->\n" +
@@ -202,11 +224,17 @@ $(function () {
 
 
     $('.playlist').click(function () {
+        if (live)
+        {
+            return;
+        }
+
         $('.dropdown-content').toggleClass('show');
         $('.playlist').toggleClass('open');
         $('.playlist-arrow').toggleClass('show');
         $('.playlist-icon-circle').toggleClass('open');
         $('.playlist-icon-line').toggleClass('open');
+        $('.playlist-icon svg').toggleClass('open');
         yaCounter50134423.reachGoal('PLAYLIST');
     });
 
