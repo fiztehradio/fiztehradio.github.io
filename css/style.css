@@ -24,6 +24,10 @@ body {
   margin: 0;
 }
 
+.inactive {
+  display: none;
+}
+
 #top {
   position: fixed;
   top: 0;
@@ -654,6 +658,20 @@ h1 {
 
 .playlist-icon {
   pointer-events: none;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.playlist-icon svg {
+  margin-top: 7px;
+}
+
+.playlist-icon svg * {
+  fill: #f04145;
+}
+
+.playlist-icon svg.open * {
+  fill: white;
 }
 
 .playlist-icon-circle:not(:nth-last-child(1)):not(:nth-last-child(2)),
