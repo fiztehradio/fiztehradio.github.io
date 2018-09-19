@@ -51,7 +51,7 @@ function updateSong() {
 
         if (data[0].live.is_live) {
             $('#song-artist').html("Физтех.Радио");
-            $('#song-title').html(data[0].streamer_name);
+            $('#song-title').html(data[0].live.streamer_name);
         }
         else {
             var song = data[0].now_playing.song;
