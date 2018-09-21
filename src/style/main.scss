@@ -286,11 +286,6 @@ h1 {
 				font-size $t,
 				padding $t;
 
-	a {
-		transition: opacity $t $t,
-		font-size $t,
-		padding $t;
-	}
 
 	&:not(.open), *:not(.open) {
 		//transform: translate(0, -25%);
@@ -302,6 +297,31 @@ h1 {
 					font-size $t $t,
 					padding $t $t;
 	}
+
+	* {
+		font-size: 16px;
+		opacity: 1;
+	}
+
+	td {
+		width: 50%;
+	}
+
+	tr {
+		:nth-child(1) {
+			font-weight: 800;
+			text-align: right;
+			padding-right: 10px;
+		}
+		:nth-child(2) {
+			text-align: left;
+			padding-left: 10px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		td:nth-child(1) {
+			width: 75%;
+		}
+	}
 }
-
-
