@@ -11,11 +11,10 @@ $red: rgb(240, 65, 69);
 }
 
 #visualizer {
-
 	position: absolute;
-	overflow: visible;
 	opacity: 0.6;
 	z-index: -1;
+	margin-top: 1.5vh;
 }
 
 html {
@@ -223,6 +222,7 @@ h1 {
 	cursor: pointer;
 
 	height: auto;
+	max-height: 100vh;
 
 	a {
 		color: white;
@@ -279,6 +279,11 @@ h1 {
 
 #bottom-text {
 
+	overflow: auto;
+
+	height: 70vh;
+
+
 	clear:both;
 	position: relative;
 	top: 45%;
@@ -291,24 +296,28 @@ h1 {
 	$t: .25s;
 
 	transition: opacity $t $t,
-				font-size $t,
-				padding $t;
+				padding $t,
+				height $t;
 
-
-	&:not(.open), *:not(.open) {
-		//transform: translate(0, -25%);
-		font-size: 0;
-		padding: 0;
+	&:not(.open), >*:not(.open) {
 		opacity: 0;
+		height: 0;
+		padding: 0;
 
 		transition: opacity $t,
-					font-size $t $t,
-					padding $t $t;
+					padding $t $t,
+					height $t $t;
 	}
 
 	* {
-		font-size: 16px;
+		//font-size: 16px;
 		opacity: 1;
+	}
+
+	table {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	td {
@@ -324,6 +333,12 @@ h1 {
 		:nth-child(2) {
 			text-align: left;
 			padding-left: 10px;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		td:nth-child(1) {
+			width: 60%;
 		}
 	}
 

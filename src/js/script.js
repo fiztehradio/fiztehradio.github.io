@@ -42,7 +42,6 @@ function frameLooper() {
     if (!play)
         return;
 
-    console.log("play");
     window.requestAnimationFrame(frameLooper);
     fbc_array = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteFrequencyData(fbc_array);
@@ -91,7 +90,7 @@ function updateSong() {
             $('.last-track-3').html(hist[2].song.text);
             $('.next-track').html(data[0].playing_next.song.text);
 
-            // player.title = "Физтех.Радио: " + song.text;	// Записывается только один раз и не обновляется при смене трекаю
+            // audio.title = "Физтех.Радио: " + song.text;	// Записывается только один раз и не обновляется при смене трекаю
 
             currentSongTitle = song.text;
             if (lastVotedSongTitle !== currentSongTitle) {
@@ -198,8 +197,6 @@ $(function () {
         toggleNav($(this))
     });
 
-    // var player = document.getElementById('player');
-
     $('#hexagon').click(function () {
 
         // Запуск анимации
@@ -208,7 +205,7 @@ $(function () {
         // Переключение кнопки play/pause
         var button = $('.button span');
         if (button.hasClass('play')) {
-            document.getElementById('player').src = "https://phystech.tv/radio/8000/fiztehradio";
+            audio.src = 'https://phystech.tv/radio/8000/fiztehradio';
             play = true;
             frameLooper();
             audio.play();
@@ -219,7 +216,7 @@ $(function () {
             setTimeout(function () {
                 play = false;
             }, 600);
-            document.getElementById('player').src = "";
+            audio.src = '';
             yaCounter50134423.reachGoal('PAUSE');
         }
         button.toggleClass('play pause');
@@ -244,13 +241,13 @@ $(function () {
         });
 
         $('#volume-minus').click(function () {
-            audio.volume = player.volume - 0.1;
-            slider.noUiSlider.set(player.volume * 100);
+            audio.volume = audio.volume - 0.1;
+            slider.noUiSlider.set(audio.volume * 100);
         });
 
         $('#volume-plus').click(function () {
-            audio.volume = player.volume + 0.1;
-            slider.noUiSlider.set(player.volume * 100);
+            audio.volume = audio.volume + 0.1;
+            slider.noUiSlider.set(audio.volume * 100);
         });
     }
     else {
