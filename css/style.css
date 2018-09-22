@@ -17,9 +17,9 @@
 
 #visualizer {
   position: absolute;
-  overflow: visible;
   opacity: .6;
   z-index: -1;
+  margin-top: 1.5vh;
 }
 
 html {
@@ -257,6 +257,7 @@ h1 {
   background-color: #f04145;
   cursor: pointer;
   height: auto;
+  max-height: 100vh;
 }
 
 #bottom a {
@@ -313,6 +314,8 @@ h1 {
 }
 
 #bottom-text {
+  overflow: auto;
+  height: 70vh;
   clear: both;
   position: relative;
   top: 45%;
@@ -320,22 +323,28 @@ h1 {
   margin: 0;
   padding: 10px 25px 25px 25px;
   vertical-align: middle;
-  -webkit-transition: opacity .25s .25s,font-size .25s,padding .25s;
-  transition: opacity .25s .25s,font-size .25s,padding .25s;
+  -webkit-transition: opacity .25s .25s,padding .25s,height .25s;
+  transition: opacity .25s .25s,padding .25s,height .25s;
 }
 
 #bottom-text:not(.open),
-#bottom-text *:not(.open) {
-  font-size: 0;
-  padding: 0;
+#bottom-text>*:not(.open) {
   opacity: 0;
-  -webkit-transition: opacity .25s,font-size .25s .25s,padding .25s .25s;
-  transition: opacity .25s,font-size .25s .25s,padding .25s .25s;
+  height: 0;
+  padding: 0;
+  -webkit-transition: opacity .25s,padding .25s .25s,height .25s .25s;
+  transition: opacity .25s,padding .25s .25s,height .25s .25s;
 }
 
 #bottom-text * {
-  font-size: 16px;
   opacity: 1;
+}
+
+#bottom-text table {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 #bottom-text td {
@@ -351,6 +360,12 @@ h1 {
 #bottom-text tr :nth-child(2) {
   text-align: left;
   padding-left: 10px;
+}
+
+@media (max-width:1200px) {
+  #bottom-text td:nth-child(1) {
+    width: 60%;
+  }
 }
 
 @media (max-width:768px) {
