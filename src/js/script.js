@@ -33,20 +33,33 @@ var currentSongTitle;
 
 var live = false;
 
-// $(function() {
-//
-//     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-//     var analyser = audioCtx.createAnalyser();
-//
-//     source = audioCtx.createMediaStreamSource(stream);
-//     source.connect(analyser);
-//     analyser.connect(distortion);
-//     distortion.connect(audioCtx.destination);
-//
-//     var canvas = document.getElementById('tutorial');
-//     var ctx = canvas.getContext('2d');
-//
-// });
+var audio, audioCtx, analyser, canvas, ctx;
+var play = false;
+
+
+
+function frameLooper() {
+    if (!play)
+        return;
+
+    console.log("play");
+    window.requestAnimationFrame(frameLooper);
+    fbc_array = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(fbc_array);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ffffff";
+    bars = fbc_array.length / 4;
+    for (var i = 0; i < bars; i++){
+        bar_x = i * 6;
+        bar_width = 1;
+        bar_height = fbc_array[i * 4] * 1.5;
+
+        ctx.fillRect(canvas.width /2 + bar_x, canvas.height / 2 - bar_height / 2, bar_width, bar_height);
+        ctx.fillRect(canvas.width /2 - bar_x, canvas.height / 2 - bar_height / 2, bar_width, bar_height);
+    }
+}
+
+
 
 function updateSong() {
     $.get("https://phystech.tv/api/nowplaying", function (data) {
@@ -158,6 +171,25 @@ $(function () {
         "</div>\n" +
         "</div>");
 
+    var iOS = !!navigator.platform && /iP(hone|od|ad)/.test(navigator.platform);
+
+    audio = new Audio();
+    audio.src = 'https://phystech.tv/radio/8000/fiztehradio';
+    // audio.loop = true;
+    // audio.autoplay = true;
+    audio.title = "Физтех.Радио";
+    audio.crossOrigin = "anonymous";
+
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+
+    canvas = document.getElementById('visualizer');
+    ctx = canvas.getContext('2d');
+
+    // stream = document.getElementById(audio);
+    source = audioCtx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
 
     $('#logo-text').click(function () {
         toggleNav($(this))
@@ -166,7 +198,7 @@ $(function () {
         toggleNav($(this))
     });
 
-    var player = document.getElementById('player');
+    // var player = document.getElementById('player');
 
     $('#hexagon').click(function () {
 
@@ -177,11 +209,16 @@ $(function () {
         var button = $('.button span');
         if (button.hasClass('play')) {
             document.getElementById('player').src = "https://phystech.tv/radio/8000/fiztehradio";
-            player.play();
+            play = true;
+            frameLooper();
+            audio.play();
             yaCounter50134423.reachGoal('PLAY');
         }
         else {
-            player.pause();
+            audio.pause();
+            setTimeout(function () {
+                play = false;
+            }, 600);
             document.getElementById('player').src = "";
             yaCounter50134423.reachGoal('PAUSE');
         }
@@ -189,8 +226,6 @@ $(function () {
         $('.button').toggleClass('play pause');
     });
 
-
-    var iOS = !!navigator.platform && /iP(hone|od|ad)/.test(navigator.platform);
     if (!iOS) {
 
         var slider = document.getElementById('volume-slider');
@@ -205,16 +240,16 @@ $(function () {
         });
 
         slider.noUiSlider.on('update', function () {
-            player.volume = slider.noUiSlider.get() / 100;
+            audio.volume = slider.noUiSlider.get() / 100;
         });
 
         $('#volume-minus').click(function () {
-            player.volume = player.volume - 0.1;
+            audio.volume = player.volume - 0.1;
             slider.noUiSlider.set(player.volume * 100);
         });
 
         $('#volume-plus').click(function () {
-            player.volume = player.volume + 0.1;
+            audio.volume = player.volume + 0.1;
             slider.noUiSlider.set(player.volume * 100);
         });
     }
@@ -300,23 +335,9 @@ $(function () {
     //     "<br><br>Стартуем 22 сентября в 15:00. Запишите в календарик, чтобы не забыть!" +
     //     "<br><br>Следи за новостями в нашем <a href='https://vk.com/radiomipt' target='_blank'>сообществе vk.com</a>";
 
-    // Открытие 15:00
-    // na.lune 15:30
-    // Виктор Перестукин 16:00
-    // КО 16:30
-    // Трио Алексея Бычкова 17:00
-    // Промышленный проезд 18:00
-    // Некондиция 19:00
-    // Pluto’s Cold Heart 19:45
-    // MUSATOV BROTHERS 20:30
-    // mipt.live 21:15
-    // ЭТО ТьМА 22:00
-    // Александр Антропов 23:00
-    // More>Sound 0:00
-    // Дамира Гареева и Андрей Пикунов 1:00
-    // Закрытие 2:00
 
     var mevText =
+        "Музыкальная жизнь Физтеха в формате большого 12-часового live-концерта из нашей радиорубки<br><br>" +
         "<table id='mevTable' style=\"width:100%\">\n" +
         "  <tr>\n" +
         "    <td>Открытие</td>\n" +
@@ -351,7 +372,7 @@ $(function () {
         "    <td>19:45</td> \n" +
         "  </tr>\n" +
 
-        "<br>" +
+        // "<br>" +
 
         "  <tr>\n" +
         "    <td>MUSATOV BROTHERS</td>\n" +
@@ -383,12 +404,6 @@ $(function () {
         "  </tr>\n" +
         "</table>";
 
-
-
-    // Александр Антропов 23:00
-    // More>Sound 0:00
-    // Дамира Гареева и Андрей Пикунов 1:00
-    // Закрытие 2:00
 
     if (mevSMM) {
         $('#bottom-header').html("Музыкальный эфир века (22 сентября)");
