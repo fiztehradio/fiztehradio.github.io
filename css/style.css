@@ -315,7 +315,7 @@ h1 {
 
 #bottom-text {
   overflow: auto;
-  height: 100px;
+  height: 200px;
   clear: both;
   position: relative;
   top: 45%;
